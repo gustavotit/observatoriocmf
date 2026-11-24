@@ -104,6 +104,15 @@ jobs:
           Rscript -e 'install.packages(c("remotes", "cpp11"))'
           Rscript -e 'remotes::install_github("${{ github.repository }}", upgrade = "never")'
 
+      - name: Marcar como CRAN los paquetes instalados desde RSPM
+        run: |
+          for lib in $(Rscript -e 'cat(.libPaths(), sep = "\n")'); do
+            for f in $(grep -l '^Repository: RSPM' "$lib"/*/DESCRIPTION 2>/dev/null); do
+              echo "Corrigiendo $f"
+              sudo sed -i 's/^Repository: RSPM\s*$/Repository: CRAN/' "$f"
+            done
+          done
+
       - name: Desplegar app pública
         env:
           SHINYAPPS_NAME: ${{ secrets.SHINYAPPS_NAME }}
@@ -113,8 +122,7 @@ jobs:
         run: |
           Rscript -e '
             Sys.unsetenv("RENV_CONFIG_REPOS_OVERRIDE")
-            options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest",
-                              RSPM = "https://packagemanager.posit.co/cran/latest"))
+            options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest"))
             rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
                                       token = Sys.getenv("SHINYAPPS_TOKEN"),
                                       secret = Sys.getenv("SHINYAPPS_SECRET"))
@@ -143,8 +151,7 @@ jobs:
           } > admin/.Renviron
           Rscript -e '
             Sys.unsetenv("RENV_CONFIG_REPOS_OVERRIDE")
-            options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest",
-                              RSPM = "https://packagemanager.posit.co/cran/latest"))
+            options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest"))
             rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
                                       token = Sys.getenv("SHINYAPPS_TOKEN"),
                                       secret = Sys.getenv("SHINYAPPS_SECRET"))
