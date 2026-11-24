@@ -97,11 +97,11 @@ jobs:
       - name: Preparar la app
         run: Rscript pipeline/prepare_app.R
 
-      - name: Instalar observatoriocmf desde GitHub y cpp11
+      - name: Instalar observatoriocmf desde GitHub, cpp11 y packrat
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          Rscript -e 'install.packages(c("remotes", "cpp11"))'
+          Rscript -e 'install.packages(c("remotes", "cpp11", "packrat"))'
           Rscript -e 'remotes::install_github("${{ github.repository }}", upgrade = "never")'
 
       - name: Marcar como CRAN los paquetes instalados desde RSPM
@@ -122,7 +122,8 @@ jobs:
         run: |
           Rscript -e '
             Sys.unsetenv("RENV_CONFIG_REPOS_OVERRIDE")
-            options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest"))
+            options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest"),
+                    rsconnect.packrat = TRUE)
             rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
                                       token = Sys.getenv("SHINYAPPS_TOKEN"),
                                       secret = Sys.getenv("SHINYAPPS_SECRET"))
@@ -151,7 +152,8 @@ jobs:
           } > admin/.Renviron
           Rscript -e '
             Sys.unsetenv("RENV_CONFIG_REPOS_OVERRIDE")
-            options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest"))
+            options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest"),
+                    rsconnect.packrat = TRUE)
             rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
                                       token = Sys.getenv("SHINYAPPS_TOKEN"),
                                       secret = Sys.getenv("SHINYAPPS_SECRET"))
