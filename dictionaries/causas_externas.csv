@@ -1,0 +1,21 @@
+desde,hasta,mecanismo,mecanismo_6grupos,etiologico,descripcion
+V01,V99,Transporte,Accidentes de transporte (alta energía),TRUE,Accidentes de transporte
+W00,W19,Caída,Accidentes no intencionales de baja energía,TRUE,Caídas
+W20,W49,Fuerza mecánica inanimada,Accidentes no intencionales de baja energía,TRUE,Exposición a fuerzas mecánicas inanimadas
+W50,W64,Fuerza mecánica animada,Accidentes no intencionales de baja energía,TRUE,"Exposición a fuerzas mecánicas animadas (golpes, mordeduras)"
+W65,W74,Desconocido/otro,Otras causas externas raras,TRUE,Ahogamiento y sumersión
+W75,W84,Desconocido/otro,No especificada/otras,TRUE,Otros riesgos accidentales para la respiración
+W85,W99,Desconocido/otro,Otras causas externas raras,TRUE,"Electricidad, radiación y temperaturas extremas"
+X00,X19,Desconocido/otro,Otras causas externas raras,TRUE,"Fuego, calor y quemaduras"
+X20,X29,Desconocido/otro,Otras causas externas raras,TRUE,Contacto con animales y plantas venenosos
+X30,X39,Desconocido/otro,Otras causas externas raras,TRUE,Fuerzas de la naturaleza
+X40,X49,Desconocido/otro,Otras causas externas raras,TRUE,Envenenamientos accidentales
+X50,X57,Desconocido/otro,Accidentes no intencionales de baja energía,TRUE,Sobreesfuerzo y esfuerzo físico
+X58,X59,Desconocido/otro,Accidente de mecanismo no especificado,TRUE,Accidente por factor inespecífico (X59 deja de usarse en Chile desde 2022)
+X60,X84,Autoagresión,Eventos no accidentales / alta complejidad,TRUE,Lesiones autoinfligidas intencionalmente
+X85,Y09,Agresión,Violencia interpersonal,TRUE,Agresiones
+Y10,Y34,Desconocido/otro,Eventos no accidentales / alta complejidad,TRUE,Eventos de intención no determinada
+Y35,Y36,Desconocido/otro,No especificada/otras,TRUE,Intervención legal y operaciones de guerra
+Y40,Y84,,Eventos no accidentales / alta complejidad,FALSE,Complicaciones de la atención (no etiológico)
+Y85,Y89,Desconocido/otro,Eventos no accidentales / alta complejidad,TRUE,Secuelas de causas externas
+Y90,Y99,,No especificada/otras,FALSE,Factores suplementarios (no etiológico)

@@ -1,0 +1,150 @@
+# Construye los datos, los publica en el repositorio, redespliega la app y (opcional) crea un release
+# citable. Se lanza desde el panel de administración o desde la pestaña Actions de GitHub.
+
+name: Construir datos y desplegar
+
+on:
+  workflow_dispatch:
+    inputs:
+      solo_deploy:
+        description: "Solo redesplegar (sin recalcular). Recalcular usa data-casos/ con los parámetros vigentes; el DEIS/GRD se clasifica localmente una vez al año"
+        type: boolean
+        default: false
+      release:
+        description: "Crear versión (release → Zenodo la agrega bajo el mismo DOI de concepto)"
+        type: boolean
+        default: false
+      bump:
+        description: "Tipo de versión"
+        type: choice
+        options: [patch, minor, major]
+        default: patch
+      nota:
+        description: "Nota de versión"
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-deploy
+  cancel-in-progress: false
+
+env:
+  LANG: C.UTF-8
+  LC_ALL: C.UTF-8
+  HAS_ADMIN: ${{ secrets.ADMIN_GH_TOKEN != '' }}
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::readxl
+            any::digest
+            any::rsconnect
+            any::shinymanager
+            any::svglite
+            any::patchwork
+
+      - name: Restaurar caché de descargas y versiones procesadas
+        uses: actions/cache@v4
+        with:
+          path: |
+            data-raw
+            data-cache
+          key: datos-${{ hashFiles('config/sources.yml', 'config/column_maps.yml', 'dictionaries/**', 'pipeline/R/**') }}
+          restore-keys: datos-
+
+      - name: Subir versión
+        id: version
+        if: ${{ inputs.release }}
+        env:
+          BUMP: ${{ inputs.bump }}
+          NOTA: ${{ inputs.nota }}
+        run: Rscript pipeline/version.R "$BUMP" "$NOTA"
+
+      - name: Ejecutar pipeline
+        if: ${{ !inputs.solo_deploy }}
+        run: Rscript pipeline/run_pipeline.R
+
+      - name: Publicar datos en el repositorio
+        if: ${{ !inputs.solo_deploy || inputs.release }}
+        run: |
+          git config user.name "observatoriocmf-bot"
+          git config user.email "observatoriocmf-bot@users.noreply.github.com"
+          git add inst/extdata DESCRIPTION CITATION.cff NEWS.md
+          if [ -d data-casos ]; then git add data-casos; fi
+          if git diff --cached --quiet; then
+            echo "Sin cambios en los datos"
+          else
+            git commit -m "Datos actualizados ${{ steps.version.outputs.version }} [skip ci]"
+            # Si el panel guardó cambios mientras se construía, se integran antes de subir.
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
+      - name: Preparar la app
+        run: Rscript pipeline/prepare_app.R
+
+      - name: Desplegar app pública
+        env:
+          SHINYAPPS_NAME: ${{ secrets.SHINYAPPS_NAME }}
+          SHINYAPPS_TOKEN: ${{ secrets.SHINYAPPS_TOKEN }}
+          SHINYAPPS_SECRET: ${{ secrets.SHINYAPPS_SECRET }}
+          APP_NAME: ${{ vars.APP_NAME || 'observatoriocmf' }}
+        run: |
+          Rscript -e '
+            rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
+                                      token = Sys.getenv("SHINYAPPS_TOKEN"),
+                                      secret = Sys.getenv("SHINYAPPS_SECRET"))
+            rsconnect::deployApp("inst/app", appName = Sys.getenv("APP_NAME"),
+                                 forceUpdate = TRUE, launch.browser = FALSE)'
+
+      - name: Desplegar panel de administración
+        env:
+          SHINYAPPS_NAME: ${{ secrets.SHINYAPPS_NAME }}
+          SHINYAPPS_TOKEN: ${{ secrets.SHINYAPPS_TOKEN }}
+          SHINYAPPS_SECRET: ${{ secrets.SHINYAPPS_SECRET }}
+          ADMIN_GH_TOKEN: ${{ secrets.ADMIN_GH_TOKEN }}
+          ADMIN_USER: ${{ secrets.ADMIN_USER }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          ADMIN_APP_NAME: ${{ vars.ADMIN_APP_NAME || 'observatoriocmf-admin' }}
+        if: ${{ env.HAS_ADMIN == 'true' }}
+        run: |
+          # Las credenciales viajan en un .Renviron que solo existe durante el despliegue.
+          umask 077
+          {
+            echo "GH_TOKEN=${ADMIN_GH_TOKEN}"
+            echo "GH_REPO=${GITHUB_REPOSITORY}"
+            echo "GH_BRANCH=${GITHUB_REF_NAME}"
+            echo "ADMIN_USER=${ADMIN_USER}"
+            echo "ADMIN_PASSWORD=${ADMIN_PASSWORD}"
+          } > admin/.Renviron
+          Rscript -e '
+            rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
+                                      token = Sys.getenv("SHINYAPPS_TOKEN"),
+                                      secret = Sys.getenv("SHINYAPPS_SECRET"))
+            rsconnect::deployApp("admin", appName = Sys.getenv("ADMIN_APP_NAME"),
+                                 appFiles = c("app.R", "R/github.R", "R/helpers.R", ".Renviron"),
+                                 forceUpdate = TRUE, launch.browser = FALSE)'
+          rm -f admin/.Renviron
+
+      - name: Crear release citable
+        if: ${{ inputs.release }}
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: Observatorio CMF Chile v${{ steps.version.outputs.version }}
+          body: ${{ inputs.nota || 'Actualización de datos.' }}
+          target_commitish: ${{ github.ref_name }}

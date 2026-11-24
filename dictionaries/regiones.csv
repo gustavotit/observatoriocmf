@@ -1,0 +1,17 @@
+codigo_region,nombre,orden_norte_sur,claves
+15,Arica y Parinacota,1,ARICA|PARINACOTA
+1,Tarapacá,2,TARAPACA
+2,Antofagasta,3,ANTOFAGASTA
+3,Atacama,4,ATACAMA
+4,Coquimbo,5,COQUIMBO
+5,Valparaíso,6,VALPARAISO
+13,Metropolitana,7,METROPOLITANA|SANTIAGO
+6,O'Higgins,8,OHIGGINS|O_HIGGINS|LIBERTADOR
+7,Maule,9,MAULE
+16,Ñuble,10,NUBLE
+8,Biobío,11,BIOBIO|BIO_BIO
+9,La Araucanía,12,ARAUCANIA
+14,Los Ríos,13,LOS_RIOS
+10,Los Lagos,14,LOS_LAGOS
+11,Aysén,15,AYSEN|AISEN
+12,Magallanes,16,MAGALLANES

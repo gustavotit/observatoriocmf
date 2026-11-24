@@ -1,0 +1,75 @@
+# Estudios económicos que el observatorio publica junto al módulo (pestaña "Estudio" de la dimensión Economía).
+#
+# Cada estudio es la salida AGREGADA de un notebook de artículo. pipeline/importar_estudio.R lee los CSV de la
+# carpeta de salida, se queda solo con las columnas indicadas (con los nombres de la izquierda), revisa que no
+# haya identificadores ni fechas y los guarda como inst/extdata/estudio_<id>_<tabla>.csv.
+#
+#   Rscript pipeline/importar_estudio.R <id> "<carpeta de salida del notebook>"
+#
+# Para agregar otro estudio (p. ej. craneosinostosis o patología maxilar), copia un bloque, cambia id, modulo,
+# textos y archivos, y corre el importador (o notebooks/importar_estudio_economico.ipynb). Las tablas son
+# opcionales: la app muestra solo las que existan. Nombres de tabla que entiende la app:
+#   estimandos           estimando, resultado, estimacion, li, ls, unidad
+#   escenarios           escenario, total, li, ls (+ mm_aislados, mm_exceso, replicas)
+#   productividad_anual  escenario, anio, total, li, ls
+#   territorio           servicio_salud (código 1-33) + indicadores (productividad, productividad_100k, valor_grd, dias_cama)
+#   territorio_anual     anio, servicio_salud, n, dias_cama, valor_grd
+#   moran                panel, pesos, moran_i, p
+# Una columna con "?" al final es opcional (si el CSV no la trae, se omite).
+
+estudios:
+  - id: trauma_carga_economica
+    modulo: trauma
+    titulo: Carga económica hospitalaria y pérdida de productividad del trauma facial en la red pública
+    titulo_corto: Carga económica del trauma facial
+    periodo: GRD 2019-2025
+    moneda: CLP de octubre de 2025
+    notebook: cmft_burden_2019_2025 v2.20
+    # Carpeta de salida del notebook; si es relativa, se busca también dentro de Descargas (Downloads).
+    carpeta_origen: "economic burden del trauma/output_v220"
+    # Cita del artículo cuando esté publicado (si no, queda la del observatorio).
+    referencia: null
+    escenario_principal: "base (evidencia)"
+    metodos: >-
+      Egresos con lesión facial en las bases GRD públicas 2019-2025 (27.632 episodios). El valor GRD se expresa en
+      pesos de octubre de 2025 (peso GRD por el precio base del clúster del hospital, actualizado con el IPC). El
+      exceso de estada y de valor por egreso compara los egresos con lesión facial y otras lesiones frente a egresos
+      traumáticos sin componente facial con la misma carga de lesiones no faciales, emparejados por coarsened exact
+      matching (año, edad, sexo, banda de RISS no facial, regiones corporales no faciales, componente craneal,
+      mecanismo, traumatismo encefalocraneano e índice de Charlson). La pérdida temporal de productividad se modela
+      por capital humano: días de ausencia laboral según escenarios de retorno al trabajo publicados, valorados con
+      el ingreso diario de los ocupados (ESI) por edad, sexo y región, solo en episodios valorables; los IC 95%
+      provienen de un bootstrap agrupado por hospital (1.000 réplicas) y los escenarios representan la
+      incertidumbre estructural. El exceso de estada (emparejado) y la productividad (modelada) no se suman. La
+      carga territorial usa el Servicio de Salud de residencia (29 territorios) y personas-año INE.
+    # Rótulos legibles de los escenarios (la clave es el nombre del CSV sin " | ingreso mediano").
+    etiquetas_escenarios:
+      "base (evidencia)": "Caso base (evidencia)"
+      "facial: mediana 15 d": "Facial, mediana 15 días"
+      "facial: por tratamiento (9 cons. / 21 op.)": "Facial, según tratamiento (9 conservador / 21 quirúrgico)"
+      "facial: por n.º de fracturas (14 / 17,5)": "Facial, según categorías de fractura (14 / 17,5)"
+      "trauma mayor (van der Vlegel)": "Trauma mayor (van der Vlegel)"
+      "cola larga: NISS >15 → 390 d (extremo)": "Cola larga, NISS > 15 a 390 días (extremo)"
+      "sin pérdida post-alta (solo estancia)": "Solo la estada, sin ausencia tras el alta"
+    tablas:
+      estimandos:
+        archivo: resultados_principales_manuscrito.csv
+        columnas: {estimando: estimand, resultado: outcome, estimacion: estimate, li: lo, ls: hi, unidad: unit}
+      escenarios:
+        archivo: cmft_productividad_rtw_incertidumbre.csv
+        columnas: {escenario: escenario_RTW, mm_aislados: MM_aislados, mm_exceso: MM_exceso_otras, total: total_MM,
+                   li: IC95_total_inf, ls: IC95_total_sup, "replicas?": replicas}
+      productividad_anual:
+        archivo: cmft_productividad_rtw_anual_ic.csv
+        columnas: {escenario: escenario_RTW, anio: anio, total: total_MM, li: IC95_total_inf, ls: IC95_total_sup}
+      territorio:
+        archivo: ss_burden_2019_2025.csv
+        columnas: {servicio_salud: ss_code, "n": n_facial, dias_cama: bed_days, valor_grd: observed_DRG_CLP2025,
+                   productividad: productivity_loss_clp2025, productividad_100k: productivity_loss_clp_per_100k_py,
+                   "personas_anio?": person_years, "tasa_ajustada?": asr_per_100k, "tasa_li?": asr_lo, "tasa_ls?": asr_hi}
+      territorio_anual:
+        archivo: ss_residence_burden_annual.csv
+        columnas: {anio: anio, servicio_salud: ss_code, "n": n_facial, dias_cama: bed_days, valor_grd: observed_DRG_CLP2025}
+      moran:
+        archivo: ss_moran_global.csv
+        columnas: {panel: panel, pesos: weights, moran_i: moran_i, p: p_permutation}

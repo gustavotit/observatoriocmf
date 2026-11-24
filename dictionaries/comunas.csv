@@ -1,0 +1,347 @@
+codigo_comuna,nombre_comuna,region,codigo_servicio_salud
+01101,Iquique,1,2
+01107,Alto Hospicio,1,2
+01401,Pozo Almonte,1,2
+01402,Camina,1,2
+01403,Colchane,1,2
+01404,Huara,1,2
+01405,Pica,1,2
+02101,Antofagasta,2,3
+02102,Mejillones,2,3
+02103,Sierra Gorda,2,3
+02104,Taltal,2,3
+02201,Calama,2,3
+02202,Ollague,2,3
+02203,San Pedro de Atacama,2,3
+02301,Tocopilla,2,3
+02302,Maria Elena,2,3
+03101,Copiapo,3,4
+03102,Caldera,3,4
+03103,Tierra Amarilla,3,4
+03201,Chanaral,3,4
+03202,Diego de Almagro,3,4
+03301,Vallenar,3,4
+03302,Alto del Carmen,3,4
+03303,Freirina,3,4
+03304,Huasco,3,4
+04101,La Serena,4,5
+04102,Coquimbo,4,5
+04103,Andacollo,4,5
+04104,La Higuera,4,5
+04105,Paiguano,4,5
+04106,Vicuna,4,5
+04201,Illapel,4,5
+04202,Canela,4,5
+04203,Los Vilos,4,5
+04204,Salamanca,4,5
+04301,Ovalle,4,5
+04302,Combarbala,4,5
+04303,Monte Patria,4,5
+04304,Punitaqui,4,5
+04305,Rio Hurtado,4,5
+05101,Valparaiso,5,6
+05102,Casablanca,5,6
+05103,Concon,5,7
+05104,Juan Fernandez,5,6
+05105,Puchuncavi,5,7
+05107,Quintero,5,7
+05109,Vina del Mar,5,7
+05201,Isla de Pascua,5,6
+05301,Los Andes,5,8
+05302,Calle Larga,5,8
+05303,Rinconada,5,8
+05304,San Esteban,5,8
+05401,La Ligua,5,7
+05402,Cabildo,5,7
+05403,Papudo,5,7
+05404,Petorca,5,7
+05405,Zapallar,5,7
+05501,Quillota,5,7
+05502,Calera,5,7
+05503,Hijuelas,5,7
+05504,La Cruz,5,7
+05506,Nogales,5,7
+05601,San Antonio,5,6
+05602,Algarrobo,5,6
+05603,Cartagena,5,6
+05604,El Quisco,5,6
+05605,El Tabo,5,6
+05606,Santo Domingo,5,6
+05701,San Felipe,5,8
+05702,Catemu,5,8
+05703,Llaillay,5,8
+05704,Panquehue,5,8
+05705,Putaendo,5,8
+05706,Santa Maria,5,8
+05801,Quilpue,5,7
+05802,Limache,5,7
+05803,Olmue,5,7
+05804,Villa Alemana,5,7
+06101,Rancagua,6,15
+06102,Codegua,6,15
+06103,Coinco,6,15
+06104,Coltauco,6,15
+06105,Donihue,6,15
+06106,Graneros,6,15
+06107,Las Cabras,6,15
+06108,Machali,6,15
+06109,Malloa,6,15
+06110,Mostazal,6,15
+06111,Olivar,6,15
+06112,Peumo,6,15
+06113,Pichidegua,6,15
+06114,Quinta de Tilcoco,6,15
+06115,Rengo,6,15
+06116,Requinoa,6,15
+06117,San Vicente,6,15
+06201,Pichilemu,6,15
+06202,La Estrella,6,15
+06203,Litueche,6,15
+06204,Marchihue,6,15
+06205,Navidad,6,15
+06206,Paredones,6,15
+06301,San Fernando,6,15
+06302,Chepica,6,15
+06303,Chimbarongo,6,15
+06304,Lolol,6,15
+06305,Nancagua,6,15
+06306,Palmilla,6,15
+06307,Peralillo,6,15
+06308,Placilla,6,15
+06309,Pumanque,6,15
+06310,Santa Cruz,6,15
+07101,Talca,7,16
+07102,Constitucion,7,16
+07103,Curepto,7,16
+07104,Empedrado,7,16
+07105,Maule,7,16
+07106,Pelarco,7,16
+07107,Pencahue,7,16
+07108,Rio Claro,7,16
+07109,San Clemente,7,16
+07110,San Rafael,7,16
+07201,Cauquenes,7,16
+07202,Chanco,7,16
+07203,Pelluhue,7,16
+07301,Curico,7,16
+07302,Hualane,7,16
+07303,Licanten,7,16
+07304,Molina,7,16
+07305,Rauco,7,16
+07306,Romeral,7,16
+07307,Sagrada Familia,7,16
+07308,Teno,7,16
+07309,Vichuquen,7,16
+07401,Linares,7,16
+07402,Colbun,7,16
+07403,Longavi,7,16
+07404,Parral,7,16
+07405,Retiro,7,16
+07406,San Javier,7,16
+07407,Villa Alegre,7,16
+07408,Yerbas Buenas,7,16
+08101,Concepcion,8,18
+08102,Coronel,8,18
+08103,Chiguayante,8,18
+08104,Florida,8,18
+08105,Hualqui,8,18
+08106,Lota,8,18
+08107,Penco,8,19
+08108,San Pedro de la Paz,8,18
+08109,Santa Juana,8,18
+08110,Talcahuano,8,19
+08111,Tome,8,19
+08112,Hualpen,8,19
+08201,Lebu,8,28
+08202,Arauco,8,28
+08203,Canete,8,28
+08204,Contulmo,8,28
+08205,Curanilahue,8,28
+08206,Los Alamos,8,28
+08207,Tirua,8,28
+08301,Los Angeles,8,20
+08302,Antuco,8,20
+08303,Cabrero,8,20
+08304,Laja,8,20
+08305,Mulchen,8,20
+08306,Nacimiento,8,20
+08307,Negrete,8,20
+08308,Quilaco,8,20
+08309,Quilleco,8,20
+08310,San Rosendo,8,20
+08311,Santa Barbara,8,20
+08312,Tucapel,8,20
+08313,Yumbel,8,20
+08314,Alto Biobio,8,20
+09101,Temuco,9,21
+09102,Carahue,9,21
+09103,Cunco,9,21
+09104,Curarrehue,9,21
+09105,Freire,9,21
+09106,Galvarino,9,21
+09107,Gorbea,9,21
+09108,Lautaro,9,21
+09109,Loncoche,9,21
+09110,Melipeuco,9,21
+09111,Nueva Imperial,9,21
+09112,Padre las Casas,9,21
+09113,Perquenco,9,21
+09114,Pitrufquen,9,21
+09115,Pucon,9,21
+09116,Saavedra,9,21
+09117,Teodoro Schmidt,9,21
+09118,Tolten,9,21
+09119,Vilcun,9,21
+09120,Villarrica,9,21
+09121,Cholchol,9,21
+09201,Angol,9,29
+09202,Collipulli,9,29
+09203,Curacautin,9,29
+09204,Ercilla,9,29
+09205,Lonquimay,9,29
+09206,Los Sauces,9,29
+09207,Lumaco,9,29
+09208,Puren,9,29
+09209,Renaico,9,29
+09210,Traiguen,9,29
+09211,Victoria,9,29
+10101,Puerto Montt,10,24
+10102,Calbuco,10,24
+10103,Cochamo,10,24
+10104,Fresia,10,24
+10105,Frutillar,10,24
+10106,Los Muermos,10,24
+10107,Llanquihue,10,24
+10108,Maullin,10,24
+10109,Puerto Varas,10,24
+10201,Castro,10,33
+10202,Ancud,10,33
+10203,Chonchi,10,33
+10204,Curaco de Velez,10,33
+10205,Dalcahue,10,33
+10206,Puqueldon,10,33
+10207,Queilen,10,33
+10208,Quellon,10,33
+10209,Quemchi,10,33
+10210,Quinchao,10,33
+10301,Osorno,10,23
+10302,Puerto Octay,10,23
+10303,Purranque,10,23
+10304,Puyehue,10,23
+10305,Rio Negro,10,23
+10306,San Juan de la Costa,10,23
+10307,San Pablo,10,23
+10401,Chaiten,10,24
+10402,Futaleufu,10,24
+10403,Hualaihue,10,24
+10404,Palena,10,24
+11101,Coihaique,11,25
+11102,Lago Verde,11,25
+11201,Aisen,11,25
+11202,Cisnes,11,25
+11203,Guaitecas,11,25
+11301,Cochrane,11,25
+11302,OHiggins,11,25
+11303,Tortel,11,25
+11401,Chile Chico,11,25
+11402,Rio Ibanez,11,25
+12101,Punta Arenas,12,26
+12102,Laguna Blanca,12,26
+12103,Rio Verde,12,26
+12104,San Gregorio,12,26
+12201,Cabo de Hornos,12,26
+12202,Antartica,12,26
+12301,Porvenir,12,26
+12302,Primavera,12,26
+12303,Timaukel,12,26
+12401,Natales,12,26
+12402,Torres del Paine,12,26
+13101,Santiago,13,11
+13102,Cerrillos,13,11
+13103,Cerro Navia,13,10
+13104,Conchali,13,9
+13105,El Bosque,13,13
+13106,Estacion Central,13,11
+13107,Huechuraba,13,9
+13108,Independencia,13,9
+13109,La Cisterna,13,13
+13110,La Florida,13,14
+13111,La Granja,13,14
+13112,La Pintana,13,14
+13113,La Reina,13,12
+13114,Las Condes,13,12
+13115,Lo Barnechea,13,12
+13116,Lo Espejo,13,13
+13117,Lo Prado,13,10
+13118,Macul,13,12
+13119,Maipu,13,11
+13120,Nunoa,13,12
+13121,Pedro Aguirre Cerda,13,13
+13122,Penalolen,13,12
+13123,Providencia,13,12
+13124,Pudahuel,13,10
+13125,Quilicura,13,9
+13126,Quinta Normal,13,10
+13127,Recoleta,13,9
+13128,Renca,13,10
+13129,San Joaquin,13,13
+13130,San Miguel,13,13
+13131,San Ramon,13,14
+13132,Vitacura,13,12
+13201,Puente Alto,13,14
+13202,Pirque,13,14
+13203,San Jose de Maipo,13,14
+13301,Colina,13,9
+13302,Lampa,13,9
+13303,Tiltil,13,9
+13401,San Bernardo,13,13
+13402,Buin,13,13
+13403,Calera de Tango,13,13
+13404,Paine,13,13
+13501,Melipilla,13,10
+13502,Alhue,13,10
+13503,Curacavi,13,10
+13504,Maria Pinto,13,10
+13505,San Pedro,13,10
+13601,Talagante,13,10
+13602,El Monte,13,10
+13603,Isla de Maipo,13,10
+13604,Padre Hurtado,13,10
+13605,Penaflor,13,10
+14101,Valdivia,14,22
+14102,Corral,14,22
+14103,Lanco,14,22
+14104,Los Lagos,14,22
+14105,Mafil,14,22
+14106,Mariquina,14,22
+14107,Paillaco,14,22
+14108,Panguipulli,14,22
+14201,La Union,14,22
+14202,Futrono,14,22
+14203,Lago Ranco,14,22
+14204,Rio Bueno,14,22
+15101,Arica,15,1
+15102,Camarones,15,1
+15201,Putre,15,1
+15202,General Lagos,15,1
+16101,Chillan,16,17
+16102,Bulnes,16,17
+16103,Chillan Viejo,16,17
+16104,El Carmen,16,17
+16105,Pemuco,16,17
+16106,Pinto,16,17
+16107,Quillon,16,17
+16108,San Ignacio,16,17
+16109,Yungay,16,17
+16201,Quirihue,16,17
+16202,Cobquecura,16,17
+16203,Coelemu,16,17
+16204,Ninhue,16,17
+16205,Portezuelo,16,17
+16206,Ranquil,16,17
+16207,Treguaco,16,17
+16301,San Carlos,16,17
+16302,Coihueco,16,17
+16303,Niquen,16,17
+16304,San Fabian,16,17
+16305,San Nicolas,16,17

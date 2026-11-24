@@ -1,0 +1,134 @@
+# Mapeo de columnas: para cada campo estándar, la lista de nombres posibles en los archivos originales.
+# Se comparan en mayúsculas, sin tildes y con "_" en vez de espacios u otros signos; se usa el primero que exista.
+# "patron" captura varias columnas a la vez (diagnósticos y procedimientos en todas las posiciones).
+# Cuando DEIS, GRD o INE cambian un nombre, basta agregarlo aquí (o desde el panel → Mapeo de columnas).
+# Los nombres vienen de los scripts y notebooks de los artículos.
+
+egresos_deis:
+  separador: ";"
+  anio: [ANO_EGRESO, ANIO_EGRESO, ANO]
+  sexo: [SEXO]
+  grupo_edad: [GRUPO_EDAD, GRUPO_ETARIO, EDAD_GRUPO]
+  edad: [EDAD, EDAD_CANT, EDAD_ANIOS]
+  comuna: [COMUNA_RESIDENCIA, COMUNA_RES, COMUNA]
+  region: [REGION_RESIDENCIA, REGION]
+  servicio_salud_estab: [SERVICIO_SALUD, SEREMI_SERVICIO_SALUD]
+  sector: [PERTENENCIA_ESTABLECIMIENTO_SALUD, PERTENENCIA_ESTABLECIMIENTO_SALU, PERTENENCIA_SNSS, PERTENENCIA]
+  prevision: [PREVISION, GLOSA_PREVISION]
+  dias_estada: [DIAS_ESTADA]
+  condicion_egreso: [CONDICION_EGRESO]
+  intervencion: [INTERV_Q, INTERVENCION_QUIRURGICA]
+  diag1: [DIAG1]
+  diag2: [DIAG2]
+
+grd:
+  separador: "|"
+  cod_hospital: [COD_HOSPITAL]
+  tipo_actividad: [TIPO_ACTIVIDAD]
+  sexo: [SEXO]
+  fecha_nacimiento: [FECHA_NACIMIENTO]
+  tramo_edad: [TRAMO_EDAD]
+  fecha_ingreso: [FECHA_INGRESO]
+  fecha_alta: [FECHAALTA, FECHA_ALTA]
+  comuna: [COMUNA]
+  provincia: [PROVINCIA]
+  prevision: [PREVISION]
+  tipo_alta: [TIPOALTA, TIPO_ALTA]
+  uso_pabellon: [USOSPABELLON]
+  fecha_intervencion: [FECHAINTERV1]
+  grd_codigo: [IR_29301_COD_GRD]
+  grd_peso: [IR_29301_PESO]
+  grd_severidad: [IR_29301_SEVERIDAD]
+  diagnosticos: {patron: "^DIAGNOSTICO_?[0-9]+$"}
+  procedimientos: {patron: "^PROCEDIMIENTO_?[0-9]+$"}
+
+poblacion_ine:
+  region: [REGION, CUT_REGION, CODIGO_REGION]
+  comuna: [COMUNA, CUT_COMUNA, CODIGO_COMUNA]
+  sexo: {patron: "^SEXO.*"}
+  area: {patron: "^AREA.*"}
+  edad: [EDAD, GRUPO_EDAD]
+  ancho: {patron: "^(POBLACION_)?(19|20)[0-9]{2}$"}
+
+nacimientos:
+  anio: [ANIO, ANO]
+  region: [REGION, REGION_RESIDENCIA]
+  nacidos_vivos: [NACIDOS_VIVOS, NACIMIENTOS, N]
+
+ipc:
+  # Indicador.xls del Banco Central: dos columnas (mes, variación % mensual) tras 4 filas de encabezado.
+  formato: variacion_mensual     # variacion_mensual | indice
+  saltar_filas: 4
+  anio: [ANIO, ANO]
+  mes: [MES, PERIODO, FECHA]
+  valor: [VAR_MENSUAL, VARIACION, IPC, INDICE, VALOR]
+
+aranceles_mai:
+  grupo: [GRUPO]
+  subgrupo: [SUBGRUPO]
+  prestacion: [PRESTA, PRESTACION]
+  codigo: [CODIGO, CODIGO_PRESTACION]
+  glosa: [GLOSA, DESCRIPCION]
+  valor: [PRECIO, VALOR, ARANCEL]
+  anio: [ANIO, ANO]
+
+productividad:
+  anio: [ANIO, ANO]
+  region: [REGION]
+  sexo: [SEXO]
+  tramo: [TRAMO_ESI, TRAMO]
+  # Caso base de los artículos: ingreso medio (ingreso_diario_medio); el mediano queda como respaldo.
+  ingreso_diario: [INGRESO_DIARIO_MEDIO, INGRESO_DIARIO_MEDIA, INGRESO_DIARIO, INGRESO_DIARIO_MEDIANO, INGRESO_DIARIO_MEDIANA]
+  tasa_ocupacion: [TASA_OCUPACION]
+
+catalogo:
+  codigo: [CODIGO, COD, CODIGO_CIE, CODIGO_CIE10]
+  descripcion: [DESCRIPCION, GLOSA, NOMBRE]
+
+territorial:
+  servicio_salud: [SERVICIO_SALUD_ID, CODIGO_SERVICIO_SALUD, SS]
+
+# Recodificación de valores (comparación en mayúsculas sin tildes; los textos se comparan también por inclusión
+# cuando la lista está en "contiene").
+recodificar:
+  sexo:
+    Hombre: ["1", HOMBRE, MASCULINO, M, HOMBRES]
+    Mujer: ["2", MUJER, FEMENINO, F, MUJERES]
+    Intersexual/indeterminado: ["3", INTERSEX, INTERSEX_INDETERMINDADO, INTERSEX_INDETERMINADO, INDETERMINADO]
+    Desconocido: ["9", "99", DESCONOCIDO, IGNORADO]
+  # DEIS: PERTENENCIA_ESTABLECIMIENTO_SALUD en texto (singular o plural según el año).
+  sector:
+    Público: ["1", PERTENECIENTE, PERTENECIENTES, PUBLICO, SNSS,
+              PERTENECIENTE_AL_SISTEMA_NACIONAL_DE_SERVICIOS_DE_SALUD_SNSS,
+              PERTENECIENTES_AL_SISTEMA_NACIONAL_DE_SERVICIOS_DE_SALUD_SNSS]
+    Privado: ["2", NO_PERTENECIENTE, NO_PERTENECIENTES, PRIVADO,
+              NO_PERTENECIENTE_AL_SISTEMA_NACIONAL_DE_SERVICIOS_DE_SALUD_SNSS,
+              NO_PERTENECIENTES_AL_SISTEMA_NACIONAL_DE_SERVICIOS_DE_SALUD_SNSS]
+  # DEIS: 1 FONASA, 2 ISAPRE, 3 CAPREDENA, 4 DIPRECA, 5 SISA, 96 ninguna, 99 desconocida.
+  # GRD: texto ("FONASA INSTITUCIONAL - (MAI) B", "CAJA DE PREVISIÓN FFAA (SISA)", "PARTICULAR"…); "~" = contiene.
+  prevision:
+    FONASA: ["1", "01", FONASA, "~FONASA"]
+    ISAPRE: ["2", "02", ISAPRE, "~ISAPRE"]
+    FF.AA. y de Orden: ["3", "4", "5", "03", "04", "05", CAPREDENA, DIPRECA, SISA, FFAA, FF_AA,
+                        "~CAPREDENA", "~DIPRECA", "~SISA", "~FFAA"]
+    Ninguna: ["96", NINGUNA, PARTICULAR, "~PARTICULAR"]
+    Desconocida: ["99", DESCONOCIDO, DESCONOCIDA, NO_SABE, NO_IDENTIFICADA, NO_CONSIGNADO, "~NO IDENTIFICAD", "~NO CONSIGNAD"]
+  # DEIS: CONDICION_EGRESO 1 = vivo, 2 = fallecido.
+  condicion_egreso:
+    Vivo: ["1", VIVO]
+    Fallecido: ["2", FALLECIDO]
+  # GRD: TIPOALTA en texto. Se clasifica por inclusión de estas raíces; lo no reconocido queda NA (no vivo).
+  tipo_alta_fallecido: [FALLEC, EXITUS, MUERTE, DEFUNCION, DECESO, OBITO]
+  tipo_alta_fallecido_codigos: ["4", "04"]
+  tipo_alta_vivo: [TRASLADO, DERIVACION, DERIVAD, OTRO HOSPITAL, OTRO ESTABLECIMIENTO, INSTITUCION, CARCEL,
+                   PENITENCIAR, GENDARMERIA, DOMICILIO, DOMICILIARIA, ALTA MEDICA, MEJORIA, VOLUNTARIA, FUGA,
+                   PASE, HOGAR, RESIDENCIA, ABANDONO, DISCIPLINARIA, CASA]
+  # GRD: actividades que cuentan como hospitalización (se excluyen CMA y las categorías extra de 2019).
+  actividad_hospitalizacion: [HOSPITALIZACION]
+  # GRD: cirugía mayor ambulatoria (TIPO_ACTIVIDAD "CIRUGÍA MAYOR AMBULATORIA (CMA)"). Solo la cuentan los
+  # módulos que la declaran en `actividades` (patología maxilar); el resto sigue siendo solo hospitalización.
+  actividad_cma: [CIRUGIA MAYOR AMBULATORIA, CMA]
+  # Claves entre comillas: en YAML, No/Sí sin comillas pueden leerse como valores lógicos.
+  intervencion:
+    "Sí": ["1", SI, S]
+    "No": ["2", "NO", "N"]

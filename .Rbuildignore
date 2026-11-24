@@ -1,0 +1,17 @@
+^\.github$
+^admin$
+^pipeline$
+^config$
+^dictionaries$
+^data-small$
+^data-raw$
+^data-cache$
+^CITATION\.cff$
+^README\.md$
+^rsconnect$
+^inst/app/R$
+^inst/app/data$
+^diagnostico$
+^notebooks$
+^data-casos$
+^parches$

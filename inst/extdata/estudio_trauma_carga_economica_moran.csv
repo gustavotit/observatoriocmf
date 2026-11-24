@@ -1,0 +1,7 @@
+panel,pesos,moran_i,p
+A. Hospitalization rate,Queen,0.247293350160118,0.084
+A. Hospitalization rate,kNN4,0.199275940734199,0.0492
+B. RISS case mix,Queen,0.0104494735871511,0.7542
+B. RISS case mix,kNN4,0.0246174402336203,0.4984
+C. Productivity loss,Queen,0.152917649283994,0.1654
+C. Productivity loss,kNN4,0.117829097989491,0.0976

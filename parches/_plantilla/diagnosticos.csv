@@ -1,0 +1,4 @@
+codigo,descripcion,subgrupo,incluir,requiere_proc,excluir_si_proc,nota
+C00,Tumor maligno del labio,Labio,TRUE,FALSE,,
+C02,Tumor maligno de otras partes y de las no especificadas de la lengua,Cavidad oral,TRUE,FALSE,,
+C10,Tumor maligno de la orofaringe,Orofaringe,TRUE,FALSE,,

@@ -1,0 +1,26 @@
+# Fisuras con GRD 2019-2025 (0-4 años, sin publicar). Aplicar con notebooks/parche_modulo.ipynb, MODULO = "fisuras".
+- id: fisuras
+  color: "#79AF97"          # color del módulo (pestaña y series de una sola línea)
+  tipo: eventos
+  nombre: Fisuras labiopalatinas
+  descripcion: Egresos por fisura de labio con o sin fisura palatina. DEIS 2001-2025 en menores de 1 año, por 1.000 nacidos vivos (denominador INE de 0 años calibrado a nacidos vivos regionales); GRD 2019-2025 en 0-4 años en la red pública, con valor GRD (serie no publicada).
+  fuentes: [egresos_deis, grd]
+  posicion: {egresos_deis: dx1, grd: dx1}
+  # DEIS = artículo (menores de 1 año). GRD (sin publicar): 0-4 años, porque el GRD 2025 solo trae TRAMO_EDAD
+  # quinquenal (0-4) y porque la palatoplastía suele hacerse después del primer año.
+  edad:
+    egresos_deis: {min: 0, max: 0}
+    grd: {min: 0, max: 4}
+  subgrupos_principales: [Q36 Labio, Q37 Labio y paladar]
+  grupos_edad:
+    egresos_deis:
+      - {etiqueta: "<1", min: 0, max: 0}
+    grd:
+      - {etiqueta: "0-4", min: 0, max: 4}
+  metricas:
+    egresos_deis: [nacidos_vivos, conteo]
+    grd: [cruda, conteo]
+  desagregar_mecanismo: false
+  estado: disponible
+  publicaciones:
+    - "[Egresos infantiles por fisura de labio con o sin fisura palatina en Chile]"

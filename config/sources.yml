@@ -1,0 +1,101 @@
+# Registro de fuentes del Observatorio CMF Chile.
+# El panel de administración agrega versiones aquí; también se puede editar a mano.
+#
+# Cada versión trae "url" (la descarga GitHub Actions; para DEIS y GRD) o "archivo" (en data-small/; tablas pequeñas).
+# Campos de cada versión: version (etiqueta única), anios, url | archivo, hoja (xlsx, opcional),
+# sha256 (opcional), fecha_carga, nota.
+#
+# rol: egresos | defunciones | poblacion | nacimientos | ipc | aranceles | productividad | catalogo_dx |
+#      catalogo_proc | territorial
+
+fuentes:
+  egresos_deis:
+    nombre: Egresos hospitalarios, datos abiertos (DEIS-MINSAL)
+    rol: egresos
+    formato_esperado: "EGRE_DATOS_ABIERTOS_{año}.csv, separador ';'"
+    mapa_columnas: egresos_deis
+    versiones: []
+
+  grd:
+    nombre: GRD públicos (FONASA/MINSAL)
+    rol: egresos
+    formato_esperado: "GRD_PUBLICO_{año}.txt, separador '|'"
+    mapa_columnas: grd
+    versiones: []
+
+  poblacion_ine:
+    nombre: Estimaciones y proyecciones de población 2002-2035 por comuna y área (INE, base Censo 2017)
+    rol: poblacion
+    formato_esperado: "estimaciones-y-proyecciones-2002-2035-comuna-y-área-urbana-y-rural.xlsx"
+    mapa_columnas: poblacion_ine
+    versiones:
+      - version: "INE-2017-base"
+        archivo: data-small/poblacion_ine/INE-2017-base.xlsx
+        notas: Archivo usado en los artículos (registrado desde el notebook de actualización).
+
+  nacimientos_region:
+    nombre: Nacidos vivos por región de residencia materna (DEIS; INE provisional en años recientes)
+    rol: nacimientos
+    formato_esperado: "CSV con anio, region, nacidos_vivos (sin región = cifra nacional)"
+    mapa_columnas: nacimientos
+    versiones:
+      - version: "DEIS 2001-2023"
+        archivo: data-small/nacidos_vivos_region_2001_2023.csv
+        notas: DEIS, base de nacimientos (microdatos), por región de residencia materna.
+      - version: "INE provisional 2024-2025"
+        archivo: data-small/nacidos_vivos_chile_2024_2025.csv
+        notas: INE, cifras provisionales nacionales (2024 publicada el 15-05-2025; 2025 el 27-05-2026).
+
+  ipc:
+    nombre: IPC general, variación porcentual mensual (Banco Central de Chile)
+    rol: ipc
+    formato_esperado: "Indicador.xls del BCCh (fecha, variación % mensual) o CSV anio, mes, ipc"
+    mapa_columnas: ipc
+    versiones:
+      - version: "BCCh-202609"
+        archivo: data-small/ipc/BCCh-202609.xls
+        notas: Archivo usado en los artículos (registrado desde el notebook de actualización).
+
+  aranceles_mai:
+    nombre: Aranceles FONASA Modalidad de Atención Institucional (MAI)
+    rol: aranceles
+    formato_esperado: "Planilla MAI (grupo, subgrupo, presta, glosa, precio)"
+    mapa_columnas: aranceles_mai
+    versiones: []
+
+  productividad:
+    nombre: Parámetros de productividad (ESI ingreso diario y tasa de ocupación)
+    rol: productividad
+    formato_esperado: "parametros_productividad_{años}.csv: anio, region, sexo, tramo_esi, ingreso_diario_*, tasa_ocupacion"
+    mapa_columnas: productividad
+    versiones:
+      - version: "ESI-2019_2024"
+        archivo: data-small/productividad/ESI-2019_2024.csv
+        notas: Archivo usado en los artículos (registrado desde el notebook de actualización).
+
+  catalogo_cie10:
+    nombre: Catálogo oficial CIE-10 (DEIS)
+    rol: catalogo_dx
+    mapa_columnas: catalogo
+    versiones: []
+
+  catalogo_cie9mc:
+    nombre: Catálogo CIE-9-MC procedimientos
+    rol: catalogo_proc
+    mapa_columnas: catalogo
+    versiones: []
+
+  oferta_servicios:
+    nombre: Dotación CMF y listas de espera por Servicio de Salud (RNPI (Transparencia) y Visor Ciudadano LE)
+    rol: territorial
+    formato_esperado: "CSV con servicio_salud_id y columnas numéricas por indicador"
+    mapa_columnas: territorial
+    versiones:
+      - version: "2026-09-30"
+        archivo: data-small/oferta_servicios_2026.csv
+        notas: >-
+          Tabla S1 del manuscrito "Is greater oral and maxillofacial surgery staffing associated with shorter
+          waiting lists?" (Sáenz-Ravello y Fisher). Residentes: proyección INE 2026. FTE = 44 h semanales del
+          último mes validado. Listas de espera al 30-09-2026; consultas nuevas = CMF + cirugía bucal; cirugías =
+          84 códigos seleccionados (Tabla S2). Especialistas = afiliaciones persona-Servicio (23 en dos Servicios;
+          310 especialistas únicos a nivel nacional).

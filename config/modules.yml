@@ -1,0 +1,227 @@
+# Módulos temáticos. Los códigos viven en dictionaries/ (columnas "modulo" y "subgrupo").
+#
+# tipo:            eventos (DEIS/GRD) | territorial (tabla por Servicio de Salud ya agregada)
+# fuentes:         bases que alimentan el módulo.
+# posicion:        dónde se busca el código: dx1 (diagnóstico principal) | cualquiera (todas las posiciones; solo GRD).
+# universo:        rangos CIE-10 del diagnóstico principal que definen el universo de referencia, por fuente.
+#                  Si se define, el caso debe pertenecer al universo y se publica el denominador "por 1.000 egresos del universo".
+# edad:            rango de edad del módulo en años cumplidos (max 0 = menores de 1 año).
+# subgrupos_principales: subgrupos que forman la definición por defecto; el resto queda como sensibilidad seleccionable.
+# agrupaciones:    series publicadas que suman varios subgrupos (p. ej. tejidos duros = fracturas + bóveda).
+# grupos_edad:     grupos etarios del artículo. El egreso entra al grupo que contiene el límite inferior de su
+#                  tramo (age_min). Las tasas poblacionales por grupo requieren que el grupo calce con quinquenios INE.
+# metricas:        métricas que ofrece la app (la primera es la por defecto):
+#                  ajustada | cruda | conteo | nacidos_vivos | universo | egresos | ajustada_chile
+# por:             escala de una métrica en este módulo (p. ej. {nacidos_vivos: 10000}); si no, la de pipeline.yml.
+# severidad:       icdpic = RISS derivado de CIE-10 (ICDPIC-R) en esa fuente.
+# color:           color del módulo en la app (paleta JAMA): pestaña de navegación y series de una línea.
+#
+# subgrupos_principales, agrupaciones, grupos_edad y metricas aceptan un valor común o uno por fuente
+# ({egresos_deis: ..., grd: ...}), para que cada fuente reproduzca su propio artículo.
+# aislado:         calcula la proporción de casos sin otras lesiones (S00-T79) fuera de los códigos del módulo (GRD).
+# desagregar_mecanismo: agrega la causa externa como dimensión.
+# economia:        false para ocultar la dimensión Economía (por defecto la tienen todos los módulos con GRD:
+#                  valor GRD y días cama). Los estudios económicos de un módulo van en config/estudios_economicos.yml.
+# estado:          disponible (se publica) | en_construccion (aparece en el índice, sin enlace).
+# actividades:     actividades GRD que cuentan como caso: Hospitalización | CMA (por defecto solo Hospitalización,
+#                  como en los artículos de trauma, infecciones y craneosinostosis). El DEIS solo trae hospitalización.
+
+modulos:
+  - id: trauma
+    color: "#B24745"          # color del módulo (pestaña y series de una sola línea)
+    tipo: eventos
+    nombre: Trauma craneomaxilofacial
+    descripcion: Lesiones faciales y craneales por región, Servicio de Salud, edad, sexo y mecanismo, con series temporales interrumpidas y valor GRD.
+    fuentes: [egresos_deis, grd]
+    posicion: {egresos_deis: dx1, grd: cualquiera}
+    universo:
+      egresos_deis: ["S00-S99", "T00-T14"]
+      grd: ["S00-S99", "T00-T14", "T20-T32"]
+    # DEIS = artículo publicado (final_final.R): blandos (8 códigos) + duros (fracturas faciales + S02.0).
+    # GRD = notebook 2019-2025: blandos + fracturas faciales + otras lesiones faciales.
+    subgrupos_principales:
+      egresos_deis: [Tejidos blandos faciales, Fracturas faciales, "Craneal: bóveda"]
+      grd: [Tejidos blandos faciales, Fracturas faciales, Otras lesiones faciales]
+    agrupaciones:
+      egresos_deis:
+        Tejidos duros: [Fracturas faciales, "Craneal: bóveda"]
+        Tejidos blandos: [Tejidos blandos faciales]
+    grupos_edad:
+      egresos_deis:
+        - {etiqueta: "0-9", min: 0, max: 9}
+        - {etiqueta: "10-18", min: 10, max: 18}
+        - {etiqueta: "19-44", min: 19, max: 44}
+        - {etiqueta: "45-59", min: 45, max: 59}
+        - {etiqueta: "60+", min: 60, max: 150}
+      grd:
+        - {etiqueta: "0-14", min: 0, max: 14}
+        - {etiqueta: "15-29", min: 15, max: 29}
+        - {etiqueta: "30-44", min: 30, max: 44}
+        - {etiqueta: "45-64", min: 45, max: 64}
+        - {etiqueta: "65+", min: 65, max: 150}
+    # Por egresos (1.000 egresos por trauma; 100.000 egresos totales) y por habitantes.
+    metricas:
+      egresos_deis: [universo, cruda, egresos, conteo]
+      grd: [universo, ajustada, cruda, egresos, conteo]
+    # Severidad anatómica derivada de CIE-10 (ICDPIC-R 1.0.1, método NIS), como el notebook GRD 2019-2025.
+    severidad: {grd: icdpic}
+    aislado: true
+    desagregar_mecanismo: true
+    estado: disponible
+    publicaciones:
+      - "Sáenz-Ravello G, et al. Craniomaxillofacial Trauma & Reconstruction. 2026;19(3):32 (DEIS 2001-2024, por 1.000 egresos por trauma)"
+      - "Dual approach to craniomaxillofacial trauma epidemiology: systematic review with nationwide interrupted time-series analysis from Chile (GRD 2019-2025)"
+
+  - id: infecciones
+    color: "#00A1D5"          # color del módulo (pestaña y series de una sola línea)
+    tipo: eventos
+    nombre: Infecciones maxilofaciales y de cabeza y cuello
+    descripcion: Hospitalizaciones por 11 códigos prespecificados en seis dominios anatómicos; J36 separado de las infecciones faríngeas profundas.
+    fuentes: [egresos_deis, grd]
+    posicion: {egresos_deis: dx1, grd: dx1}
+    subgrupos_principales: [Oral y maxilares, Piel y tejidos blandos facial/cervical, Glándulas salivales, Orbitaria, Periamigdalina, Faríngea/cervical profunda]
+    grupos_edad:
+      - {etiqueta: "0-14", min: 0, max: 14}
+      - {etiqueta: "15-64", min: 15, max: 64}
+      - {etiqueta: "65+", min: 65, max: 150}
+    # Por habitantes (principal) y por 100.000 egresos totales (sensibilidad del denominador).
+    metricas:
+      egresos_deis: [cruda, egresos, ajustada_chile, conteo]
+      grd: [cruda, ajustada, egresos, conteo]
+    desagregar_mecanismo: false
+    estado: disponible
+    publicaciones:
+      - "[Infecciones maxilofaciales y de cabeza y cuello en Chile, DEIS 2002-2025]"
+
+  - id: fisuras
+    color: "#79AF97"          # color del módulo (pestaña y series de una sola línea)
+    tipo: eventos
+    nombre: Fisuras labiopalatinas
+    descripcion: Egresos por fisura de labio con o sin fisura palatina. DEIS 2001-2025 en menores de 1 año, por 1.000 nacidos vivos (denominador INE de 0 años calibrado a nacidos vivos regionales); GRD 2019-2025 en 0-4 años en la red pública, con valor GRD (serie no publicada).
+    fuentes: [egresos_deis, grd]
+    posicion: {egresos_deis: dx1, grd: dx1}
+    # DEIS = artículo (menores de 1 año). GRD (sin publicar): 0-4 años, porque el GRD 2025 solo trae TRAMO_EDAD
+    # quinquenal (0-4) y porque la palatoplastía suele hacerse después del primer año.
+    edad:
+      egresos_deis: {min: 0, max: 0}
+      grd: {min: 0, max: 4}
+    subgrupos_principales: [Q36 Labio, Q37 Labio y paladar]
+    grupos_edad:
+      egresos_deis:
+        - {etiqueta: "<1", min: 0, max: 0}
+      grd:
+        - {etiqueta: "0-4", min: 0, max: 4}
+    metricas:
+      egresos_deis: [nacidos_vivos, conteo]
+      grd: [cruda, conteo]
+    desagregar_mecanismo: false
+    estado: disponible
+    publicaciones:
+      - "[Egresos infantiles por fisura de labio con o sin fisura palatina en Chile]"
+
+  - id: craneosinostosis
+    color: "#6A6599"          # color del módulo (pestaña y series de una sola línea)
+    tipo: eventos
+    nombre: Craneosinostosis
+    descripcion: Egresos en 0-9 años por craneosinostosis (DEIS 2002-2025) y valor GRD por episodio en la red pública (2019-2025).
+    fuentes: [egresos_deis, grd]
+    posicion: {egresos_deis: dx1, grd: dx1}
+    edad: {min: 0, max: 9}
+    # DEIS = serie craneosinostosis_series (Q75.0 principal). GRD = definición "principal" del notebook v35:
+    # Q75.0 o Q75.1 principal, Q87.0 principal con cirugía craneal y Q75.0 secundario con cirugía craneal.
+    subgrupos_principales:
+      egresos_deis: ["Q75.0 Craneosinostosis"]
+      grd: ["Q75.0 Craneosinostosis", "Q75.1 Sindrómica (Crouzon)", "Q87.0 Sindrómica con cirugía craneal",
+            "Q75.0 Craneosinostosis (secundario con cirugía)"]
+    secundario_con_proc:
+      grd:
+        subgrupos: ["Q75.0 Craneosinostosis"]
+        dx1_permitido: [Q67, Q75, Q87]      # SECONDARY_DX1_ALLOWED del notebook v35
+    grupos_edad:
+      - {etiqueta: "<1", min: 0, max: 0}
+      - {etiqueta: "1-9", min: 1, max: 9}
+    # Serie DEIS (craneosinostosis_series): egresos Q75.0 de 0-9 años por 10.000 nacidos vivos.
+    metricas:
+      egresos_deis: [nacidos_vivos, cruda, conteo]
+      grd: [conteo]
+    por: {nacidos_vivos: 10000}
+    desagregar_mecanismo: false
+    estado: disponible
+    publicaciones:
+      - "[Craneosinostosis en Chile: valor GRD de la atención hospitalaria, incidencia de primera cirugía y capacidad del sistema público, 2019-2025]"
+
+  - id: patologia_maxilar
+    color: "#DF8F44"          # color del módulo (pestaña y series de una sola línea)
+    tipo: eventos
+    nombre: Patología quirúrgica maxilar
+    descripcion: Dientes incluidos e impactados, quistes y tumores benignos de los maxilares. DEIS 2001-2025 (hospitalización, público y privado) y GRD 2019-2025 (hospitalización y cirugía mayor ambulatoria de la red pública), con valor GRD por episodio.
+    fuentes: [egresos_deis, grd]
+    posicion: {egresos_deis: dx1, grd: dx1}
+    # La CMA concentra ~80% de los dientes incluidos y quistes en GRD 2022-2023; el DEIS no la registra.
+    actividades:
+      egresos_deis: [Hospitalización]
+      grd: [Hospitalización, CMA]
+    subgrupos_principales: [Dientes incluidos e impactados, Quistes de los maxilares, Tumores benignos de los maxilares,
+                            "Tumor benigno óseo craneofacial (D16.4)"]
+    # Queratoquiste: K09.0 hasta 2004 y desde 2017, D16.4/D16.5 entre 2005 y 2016 (OMS). Las tendencias por tipo de
+    # lesión se leen con "Lesiones de los maxilares" (quistes + tumores), que no depende de esa reclasificación.
+    agrupaciones:
+      Dientes incluidos e impactados: [Dientes incluidos e impactados]
+      Lesiones de los maxilares: [Quistes de los maxilares, Tumores benignos de los maxilares, "Tumor benigno óseo craneofacial (D16.4)"]
+    # Calzan con los tramos decenales del DEIS (cada grupo tiene tasa poblacional en ambas fuentes).
+    grupos_edad:
+      - {etiqueta: "0-9", min: 0, max: 9}
+      - {etiqueta: "10-19", min: 10, max: 19}
+      - {etiqueta: "20-29", min: 20, max: 29}
+      - {etiqueta: "30-49", min: 30, max: 49}
+      - {etiqueta: "50+", min: 50, max: 150}
+    metricas:
+      egresos_deis: [cruda, egresos, ajustada_chile, conteo]
+      grd: [cruda, ajustada, egresos, conteo]
+    desagregar_mecanismo: false
+    estado: disponible
+    publicaciones:
+      - "[Patología quirúrgica maxilar en Chile: egresos DEIS 2001-2025 y cirugía mayor ambulatoria GRD 2019-2025]"
+
+  - id: cancer_oral
+    color: "#80796B"          # color del módulo (pestaña y series de una sola línea)
+    tipo: eventos
+    nombre: Cáncer oral y orofaríngeo
+    descripcion: Egresos por cáncer de labio, cavidad oral y orofaringe.
+    fuentes: [egresos_deis, grd]
+    posicion: {egresos_deis: dx1, grd: dx1}
+    metricas: [ajustada, cruda, conteo]
+    desagregar_mecanismo: false
+    estado: en_construccion
+
+  - id: anomalias_dentofaciales
+    color: "#80796B"          # color del módulo (pestaña y series de una sola línea)
+    tipo: eventos
+    nombre: Anomalías dentofaciales
+    descripcion: Hospitalizaciones por anomalías dentomaxilares y cirugía ortognática.
+    fuentes: [egresos_deis, grd]
+    posicion: {egresos_deis: dx1, grd: dx1}
+    metricas: [ajustada, cruda, conteo]
+    desagregar_mecanismo: false
+    estado: en_construccion
+
+  - id: atm
+    color: "#80796B"          # color del módulo (pestaña y series de una sola línea)
+    tipo: eventos
+    nombre: Articulación temporomandibular
+    descripcion: Trastornos y luxación de la ATM que requieren hospitalización.
+    fuentes: [egresos_deis, grd]
+    posicion: {egresos_deis: dx1, grd: dx1}
+    metricas: [ajustada, cruda, conteo]
+    desagregar_mecanismo: false
+    estado: en_construccion
+
+  - id: oferta
+    color: "#374E55"          # color del módulo (pestaña y series de una sola línea)
+    tipo: territorial
+    nombre: Capacidad instalada y lista de espera
+    descripcion: Dotación pública de cirujanos maxilofaciales (RNPI y remuneraciones), FTE por 100.000 residentes y listas de espera por Servicio de Salud.
+    fuentes: [oferta_servicios]
+    estado: disponible
+    publicaciones:
+      - "[Dotación pública de CMF y listas de espera en los Servicios de Salud de Chile, 2026]"

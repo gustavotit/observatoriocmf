@@ -1,0 +1,30 @@
+codigo_servicio_salud,nombre,region
+1,Arica y Parinacota,15
+2,Tarapacá,1
+3,Antofagasta,2
+4,Atacama,3
+5,Coquimbo,4
+6,Valparaíso San Antonio,5
+7,Viña del Mar Quillota,5
+8,Aconcagua,5
+9,Metropolitano Norte,13
+10,Metropolitano Occidente,13
+11,Metropolitano Central,13
+12,Metropolitano Oriente,13
+13,Metropolitano Sur,13
+14,Metropolitano Sur Oriente,13
+15,O'Higgins,6
+16,Maule,7
+17,Ñuble,16
+18,Concepción,8
+19,Talcahuano,8
+20,Biobío,8
+21,Araucanía Sur,9
+22,Los Ríos,14
+23,Osorno,10
+24,Reloncaví,10
+25,Aysén,11
+26,Magallanes,12
+28,Arauco,8
+29,Araucanía Norte,9
+33,Chiloé,10

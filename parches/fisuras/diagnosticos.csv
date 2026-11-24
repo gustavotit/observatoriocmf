@@ -1,0 +1,4 @@
+codigo,descripcion,modulo,subgrupo,incluir,requiere_proc,excluir_si_proc,nota
+Q35,Fisura del paladar,fisuras,Q35 Paladar,TRUE,FALSE,,Sensibilidad (Q35-Q37)
+Q36,Labio leporino,fisuras,Q36 Labio,TRUE,FALSE,,
+Q37,Fisura del paladar con labio leporino,fisuras,Q37 Labio y paladar,TRUE,FALSE,,

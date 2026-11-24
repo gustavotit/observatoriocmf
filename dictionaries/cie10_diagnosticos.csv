@@ -1,0 +1,83 @@
+codigo,descripcion,modulo,subgrupo,incluir,requiere_proc,excluir_si_proc,nota
+S00.1,Contusión de los párpados y de la región periocular,trauma,Tejidos blandos faciales,TRUE,FALSE,,
+S00.3,Traumatismo superficial de la nariz,trauma,Tejidos blandos faciales,TRUE,FALSE,,
+S00.4,Traumatismo superficial del oído,trauma,Tejidos blandos faciales,TRUE,FALSE,,
+S00.5,Traumatismo superficial del labio y de la cavidad bucal,trauma,Tejidos blandos faciales,TRUE,FALSE,,
+S01.2,Herida de la nariz,trauma,Tejidos blandos faciales,TRUE,FALSE,,
+S01.3,Herida del oído,trauma,Tejidos blandos faciales,TRUE,FALSE,,
+S01.4,Herida de la mejilla y de la región temporomandibular,trauma,Tejidos blandos faciales,TRUE,FALSE,,
+S01.5,Herida del labio y de la cavidad bucal,trauma,Tejidos blandos faciales,TRUE,FALSE,,
+S02.2,Fractura de los huesos de la nariz,trauma,Fracturas faciales,TRUE,FALSE,,
+S02.3,Fractura del suelo de la órbita,trauma,Fracturas faciales,TRUE,FALSE,,
+S02.4,Fractura del malar y del hueso maxilar superior,trauma,Fracturas faciales,TRUE,FALSE,,
+S02.6,Fractura del maxilar inferior,trauma,Fracturas faciales,TRUE,FALSE,,
+S02.7,Fracturas múltiples que comprometen el cráneo y los huesos de la cara,trauma,Fracturas faciales,TRUE,FALSE,,
+S02.8,Fractura de otros huesos del cráneo y de la cara,trauma,Fracturas faciales,TRUE,FALSE,,
+S02.9,"Fractura del cráneo y de los huesos de la cara, parte no especificada",trauma,Fracturas faciales,TRUE,FALSE,,
+S03.0,Luxación del maxilar,trauma,Otras lesiones faciales,TRUE,FALSE,,Solo en el notebook 2019-2025
+S03.1,Luxación del cartílago del tabique nasal,trauma,Otras lesiones faciales,TRUE,FALSE,,Solo en el notebook 2019-2025
+S03.4,Esguinces y torceduras del maxilar,trauma,Otras lesiones faciales,TRUE,FALSE,,Solo en el notebook 2019-2025
+S05.4,Herida penetrante de la órbita con o sin cuerpo extraño,trauma,Otras lesiones faciales,TRUE,FALSE,,Solo en el notebook 2019-2025
+S07.0,Traumatismo por aplastamiento de la cara,trauma,Otras lesiones faciales,TRUE,FALSE,,Solo en el notebook 2019-2025
+S02.0,Fractura de la bóveda del cráneo,trauma,Craneal: bóveda,TRUE,FALSE,,En el grupo duro de final_final.R; craneal en el notebook 2019-2025
+S02.1,Fractura de la base del cráneo,trauma,Craneal: base,TRUE,FALSE,,CMFT amplio (sensibilidad) en el notebook 2019-2025
+S02.5,Fractura de los dientes,trauma,Dentoalveolar,FALSE,FALSE,,No usado en los artículos
+K10.2,Afecciones inflamatorias de los maxilares,infecciones,Oral y maxilares,TRUE,FALSE,,
+K12.2,Celulitis y absceso de boca (incluye piso de boca / Ludwig),infecciones,Oral y maxilares,TRUE,FALSE,,
+L02.0,"Absceso cutáneo, furúnculo y ántrax de la cara",infecciones,Piel y tejidos blandos facial/cervical,TRUE,FALSE,,
+L02.1,"Absceso cutáneo, furúnculo y ántrax del cuello",infecciones,Piel y tejidos blandos facial/cervical,TRUE,FALSE,,
+L03.2,Celulitis de la cara,infecciones,Piel y tejidos blandos facial/cervical,TRUE,FALSE,,
+K11.2,Sialoadenitis,infecciones,Glándulas salivales,TRUE,FALSE,,
+K11.3,Absceso de glándula salival,infecciones,Glándulas salivales,TRUE,FALSE,,
+H05.0,Inflamación aguda de la órbita,infecciones,Orbitaria,TRUE,FALSE,,
+J36,Absceso periamigdalino,infecciones,Periamigdalina,TRUE,FALSE,,Separado de las infecciones faríngeas profundas
+J39.0,Absceso retrofaríngeo y parafaríngeo,infecciones,Faríngea/cervical profunda,TRUE,FALSE,,
+J39.1,Otros abscesos de la faringe,infecciones,Faríngea/cervical profunda,TRUE,FALSE,,
+K04.6,Absceso periapical con fístula,infecciones,Odontogénica localizada,FALSE,FALSE,,No usado en el artículo de infecciones
+K04.7,Absceso periapical sin fístula,infecciones,Odontogénica localizada,FALSE,FALSE,,No usado en el artículo de infecciones
+A46,Erisipela,infecciones,Sin sitio anatómico,FALSE,FALSE,,Excluido: no codifica el sitio anatómico
+Q35,Fisura del paladar,fisuras,Q35 Paladar,TRUE,FALSE,,Sensibilidad (Q35-Q37)
+Q36,Labio leporino,fisuras,Q36 Labio,TRUE,FALSE,,
+Q37,Fisura del paladar con labio leporino,fisuras,Q37 Labio y paladar,TRUE,FALSE,,
+Q75.0,Craneosinostosis,craneosinostosis,Q75.0 Craneosinostosis,TRUE,FALSE,,Definición comparable DEIS-GRD
+Q75.1,Disostosis craneofacial (Crouzon),craneosinostosis,Q75.1 Sindrómica (Crouzon),TRUE,FALSE,,
+Q87.0,Síndromes de malformaciones congénitas que afectan principalmente la apariencia facial,craneosinostosis,Q87.0 Sindrómica con cirugía craneal,TRUE,TRUE,,Solo con procedimiento craneal (Apert/Pfeiffer); agrupa también Pierre Robin y Goldenhar
+Q75.8,Otras malformaciones especificadas de los huesos del cráneo y de la cara,craneosinostosis,Otras Q75,FALSE,FALSE,,Extraído pero no incluido en la definición
+Q75.9,"Malformación congénita de los huesos del cráneo y de la cara, no especificada",craneosinostosis,Otras Q75,FALSE,FALSE,,Extraído pero no incluido en la definición
+K01.0,Dientes incluidos,patologia_maxilar,Dientes incluidos e impactados,TRUE,FALSE,,
+K01.1,Dientes impactados,patologia_maxilar,Dientes incluidos e impactados,TRUE,FALSE,,
+K04.8,Quiste radicular,patologia_maxilar,Quistes de los maxilares,TRUE,FALSE,,
+K09.0,Quistes originados por el desarrollo de los dientes,patologia_maxilar,Quistes de los maxilares,TRUE,FALSE,,"Incluye queratoquiste desde 2017 (OMS); 2005-2016 se codificó como D16.4/D16.5: tendencias con la agrupación ""Lesiones de los maxilares"""
+K09.1,Quistes de las fisuras (no odontogénicos) del desarrollo de la región bucal,patologia_maxilar,Quistes de los maxilares,TRUE,FALSE,,
+K09.2,Otros quistes de los maxilares,patologia_maxilar,Quistes de los maxilares,TRUE,FALSE,,
+K09.9,"Quiste de la región bucal, sin otra especificación",patologia_maxilar,Quistes de los maxilares,TRUE,FALSE,,
+D16.5,Tumor benigno del maxilar inferior,patologia_maxilar,Tumores benignos de los maxilares,TRUE,FALSE,,Ameloblastoma y otros tumores odontogénicos mandibulares
+K10.1,Granuloma central de células gigantes,patologia_maxilar,Tumores benignos de los maxilares,TRUE,FALSE,,
+D16.4,Tumor benigno de los huesos del cráneo y de la cara,patologia_maxilar,Tumor benigno óseo craneofacial (D16.4),TRUE,FALSE,01;02,"Incluye calota: en GRD se excluye con cirugía craneal (01.x, 02.x; 42% de los egresos 2022-2023, neurocirugía la especialidad más frecuente). En DEIS no se puede excluir: sensibilidad sin este subgrupo"
+K00.1,Dientes supernumerarios,patologia_maxilar,Dientes supernumerarios,TRUE,FALSE,,"Sensibilidad (no en la definición por defecto): mesiodens y otros bajo anestesia general, sobre todo pediátricos"
+K09.8,"Otros quistes de la región bucal, no clasificados en otra parte",patologia_maxilar,Quistes de tejidos blandos orales,TRUE,FALSE,,"Sensibilidad: dermoide, linfoepitelial, nasolabial; GRD 2022-2023: procedimiento más frecuente 27.49 (lesión de boca)"
+K10.0,Trastornos del desarrollo de los maxilares,patologia_maxilar,Otras enfermedades de los maxilares,TRUE,FALSE,,"Sensibilidad: torus, quiste de Stafne"
+K10.9,"Enfermedad de los maxilares, no especificada",patologia_maxilar,Otras enfermedades de los maxilares,TRUE,FALSE,,Sensibilidad
+K10.8,Otras enfermedades especificadas de los maxilares,patologia_maxilar,Otras enfermedades de los maxilares,FALSE,FALSE,,"Excluido: GRD 2022-2023 lo usa sobre todo con artroplastía de ATM (76.5, 56%) y osteoplastías (76.6x): hiperplasia condílea; evaluar para ATM o anomalías dentofaciales"
+C00,Tumor maligno del labio,cancer_oral,Labio,TRUE,FALSE,,Semilla: revisar
+C01,Tumor maligno de la base de la lengua,cancer_oral,Cavidad oral,TRUE,FALSE,,Semilla: revisar
+C02,Tumor maligno de otras partes y de las no especificadas de la lengua,cancer_oral,Cavidad oral,TRUE,FALSE,,Semilla: revisar
+C03,Tumor maligno de la encía,cancer_oral,Cavidad oral,TRUE,FALSE,,Semilla: revisar
+C04,Tumor maligno del piso de la boca,cancer_oral,Cavidad oral,TRUE,FALSE,,Semilla: revisar
+C05,Tumor maligno del paladar,cancer_oral,Cavidad oral,TRUE,FALSE,,Semilla: revisar
+C06,Tumor maligno de otras partes y de las no especificadas de la boca,cancer_oral,Cavidad oral,TRUE,FALSE,,Semilla: revisar
+C09,Tumor maligno de la amígdala,cancer_oral,Orofaringe,TRUE,FALSE,,Semilla: revisar
+C10,Tumor maligno de la orofaringe,cancer_oral,Orofaringe,TRUE,FALSE,,Semilla: revisar
+C41.0,Tumor maligno de los huesos del cráneo y de la cara,cancer_oral,Huesos maxilofaciales,TRUE,FALSE,,Semilla: revisar
+C41.1,Tumor maligno del hueso del maxilar inferior,cancer_oral,Huesos maxilofaciales,TRUE,FALSE,,Semilla: revisar
+C07,Tumor maligno de la glándula parótida,cancer_oral,Glándulas salivales,FALSE,FALSE,,Opcional
+C08,Tumor maligno de otras glándulas salivales mayores y de las no especificadas,cancer_oral,Glándulas salivales,FALSE,FALSE,,Opcional
+K07.0,Anomalías evidentes del tamaño de los maxilares,anomalias_dentofaciales,Anomalías dentofaciales,TRUE,FALSE,,Semilla: revisar
+K07.1,Anomalías de la relación maxilobasilar,anomalias_dentofaciales,Anomalías dentofaciales,TRUE,FALSE,,Semilla: revisar
+K07.2,Anomalías de la relación entre los arcos dentarios,anomalias_dentofaciales,Anomalías dentofaciales,TRUE,FALSE,,Semilla: revisar
+K07.4,Maloclusión de tipo no especificado,anomalias_dentofaciales,Anomalías dentofaciales,TRUE,FALSE,,Semilla: revisar
+K07.5,Anomalías dentofaciales funcionales,anomalias_dentofaciales,Anomalías dentofaciales,TRUE,FALSE,,Semilla: revisar
+K07.8,Otras anomalías dentofaciales,anomalias_dentofaciales,Anomalías dentofaciales,TRUE,FALSE,,Semilla: revisar
+K07.9,"Anomalía dentofacial, no especificada",anomalias_dentofaciales,Anomalías dentofaciales,TRUE,FALSE,,Semilla: revisar
+K07.6,Trastornos de la articulación temporomaxilar,atm,Trastornos de la ATM,TRUE,FALSE,,Semilla: revisar
+S03.0,Luxación del maxilar,atm,Luxación,TRUE,FALSE,,También en trauma (otras lesiones faciales)

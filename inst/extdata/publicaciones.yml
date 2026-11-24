@@ -1,0 +1,55 @@
+# Biblioteca de epidemiología CMF de Chile (pestaña "Biblioteca" de la app). Se agrega y quita desde el panel de
+# administración (pestaña Biblioteca, con autocompletado por DOI) y basta "Solo redesplegar": no recalcula datos.
+#
+# Campos:
+#   tipo         observatorio (lo reproduce un módulo) | serie_hospitalaria | nacional | revision
+#   modulo       ámbito del observatorio (id de config/modules.yml), opcional
+#   autores      Vancouver (hasta 6 y "et al"); anio; titulo; revista (abreviatura NLM)
+#   referencia   volumen(número):páginas o número de artículo; doi (sin https://doi.org/); pmid
+#   estado       publicado | aceptado | en prensa
+#   institucion  hospital o centro (series hospitalarias); region; periodo de los datos; casos (n)
+#   diseno       diseño y fuente, en una línea; datos: fuente y período que reproduce el módulo
+# Un artículo sin doi se muestra sin enlace. Los manuscritos en revisión quedan comentados hasta que se publiquen.
+
+articulos:
+  - tipo: observatorio
+    modulo: trauma
+    autores: "Sáenz-Ravello G, Carrasco García P, Sáenz-Ravello L, Fisher EL"
+    anio: 2026
+    titulo: "Epidemiology of Craniomaxillofacial Trauma in Chile: A Systematic Review and 24-Year Nationwide Interrupted Time-Series Analysis"
+    revista: "Craniomaxillofac Trauma Reconstr"
+    referencia: "19(3):32"
+    doi: "10.3390/cmtr19030032"
+    estado: publicado
+    datos: "DEIS 2001-2024"
+    region: "Nacional"
+
+  # - modulo: trauma
+  #   autores: "Sáenz-Ravello G, Carrasco García P, Sáenz-Ravello L, Fisher EL"
+  #   anio: 2027
+  #   titulo: "Dual approach to craniomaxillofacial trauma epidemiology: systematic review with nationwide interrupted time-series analysis from Chile"
+  #   revista: ""
+  #   referencia: ""
+  #   doi: null
+  #   estado: publicado
+  #   datos: "GRD 2019-2025"
+
+  # - modulo: infecciones
+  #   autores: "Sáenz-Ravello G, Sáenz-Ravello L, Fisher EL"
+  #   anio: 2027
+  #   titulo: "National Trends in Hospitalizations for Head and Neck Infections in Chile, 2002-2025"
+  #   revista: ""
+  #   referencia: ""
+  #   doi: null
+  #   estado: publicado
+  #   datos: "DEIS 2002-2025"
+
+  # - modulo: oferta
+  #   autores: "Sáenz-Ravello G, Fisher EL"
+  #   anio: 2027
+  #   titulo: "Is greater oral and maxillofacial surgery staffing associated with shorter waiting lists? A nationwide ecological study of Chilean public health services"
+  #   revista: ""
+  #   referencia: ""
+  #   doi: null
+  #   estado: publicado
+  #   datos: "RNPI (Transparencia) y Visor Ciudadano LE, 2026"

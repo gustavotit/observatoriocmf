@@ -1,0 +1,22 @@
+# Copia esta carpeta como parches/<id_del_modulo>/ y edita. El bloque va igual que en config/modules.yml,
+# pero sin la sangría inicial. Al aplicar el parche se reemplaza el módulo con el mismo id.
+- id: cancer_oral
+  color: "#925E9F"
+  tipo: eventos
+  nombre: Cáncer oral y orofaríngeo
+  descripcion: Egresos por cáncer de labio, cavidad oral y orofaringe.
+  fuentes: [egresos_deis, grd]
+  posicion: {egresos_deis: dx1, grd: dx1}
+  subgrupos_principales: [Labio, Cavidad oral, Orofaringe]
+  grupos_edad:
+    - {etiqueta: "0-44", min: 0, max: 44}
+    - {etiqueta: "45-64", min: 45, max: 64}
+    - {etiqueta: "65+", min: 65, max: 150}
+  metricas:
+    egresos_deis: [cruda, egresos, ajustada_chile, conteo]
+    grd: [cruda, ajustada, egresos, conteo]
+  desagregar_mecanismo: false
+  # en_construccion mientras revisas; disponible cuando los controles coincidan.
+  estado: en_construccion
+  publicaciones:
+    - "[Título del artículo]"

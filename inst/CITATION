@@ -1,0 +1,10 @@
+bibentry(
+  bibtype = "Manual",
+  title = "Observatorio CMF Chile: plataforma abierta de epidemiología craneomaxilofacial basada en DEIS y GRD",
+  author = person("Gustavo", "Sáenz-Ravello"),
+  year = format(Sys.Date(), "%Y"),
+  note = paste("Versión", utils::packageVersion("observatoriocmf")),
+  textVersion = paste0("Sáenz-Ravello G. Observatorio CMF Chile: plataforma abierta de epidemiología ",
+                       "craneomaxilofacial basada en DEIS y GRD. Versión ",
+                       utils::packageVersion("observatoriocmf"), ".")
+)

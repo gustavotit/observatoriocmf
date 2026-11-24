@@ -1,0 +1,1428 @@
+{
+  "fecha": "2026-11-24 18:35:45 UTC",
+  "errores": [],
+  "advertencias": [
+    "egresos_deis 2023: 8.75% sin región resuelta",
+    "egresos_deis 2025: 7.97% sin región resuelta",
+    "Años sin población INE (sin tasas): 2001"
+  ],
+  "fuentes": {
+    "egresos_deis1": {
+      "fuente": "egresos_deis",
+      "version": "2001",
+      "n_leidos": 1566188,
+      "n_hospitalizacion": 1566188,
+      "casos_por_modulo": {
+        "trauma": 6905,
+        "infecciones": 6765,
+        "fisuras": 386,
+        "craneosinostosis": 82,
+        "patologia_maxilar": 671,
+        "cancer_oral": 566,
+        "anomalias_dentofaciales": 281,
+        "atm": 74
+      },
+      "anios": 2001,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 1.17,
+      "pct_region_por_comuna": 98.83,
+      "region_fuente": {
+        "comuna": 1547931,
+        "sin resolver": 18257
+      },
+      "comuna_fuente": {
+        "código": 1547931,
+        "sin dato": 18257
+      },
+      "pct_sin_edad": 3.71,
+      "pct_sin_grupo_quinquenal": 89.45,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 3.71,
+      "pct_sin_sexo": 3.71,
+      "pct_sin_estada": 0.02,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis2": {
+      "fuente": "egresos_deis",
+      "version": "2002",
+      "n_leidos": 1599076,
+      "n_hospitalizacion": 1599076,
+      "casos_por_modulo": {
+        "trauma": 7240,
+        "infecciones": 7426,
+        "fisuras": 264,
+        "craneosinostosis": 43,
+        "patologia_maxilar": 666,
+        "cancer_oral": 666,
+        "anomalias_dentofaciales": 318,
+        "atm": 65
+      },
+      "anios": 2002,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.14,
+      "pct_region_por_comuna": 99.86,
+      "region_fuente": {
+        "comuna": 1596835,
+        "sin resolver": 2241
+      },
+      "comuna_fuente": {
+        "código": 1596835,
+        "sin dato": 2241
+      },
+      "pct_sin_edad": 13.43,
+      "pct_sin_grupo_quinquenal": 92.62,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 13.43,
+      "pct_sin_sexo": 13.43,
+      "pct_sin_estada": 13.43,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis3": {
+      "fuente": "egresos_deis",
+      "version": "2003",
+      "n_leidos": 1599280,
+      "n_hospitalizacion": 1599280,
+      "casos_por_modulo": {
+        "trauma": 7218,
+        "infecciones": 7544,
+        "fisuras": 400,
+        "craneosinostosis": 54,
+        "patologia_maxilar": 688,
+        "cancer_oral": 674,
+        "anomalias_dentofaciales": 421,
+        "atm": 79
+      },
+      "anios": 2003,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.21,
+      "pct_region_por_comuna": 99.79,
+      "region_fuente": {
+        "comuna": 1595886,
+        "sin resolver": 3394
+      },
+      "comuna_fuente": {
+        "código": 1595886,
+        "sin dato": 3394
+      },
+      "pct_sin_edad": 0,
+      "pct_sin_grupo_quinquenal": 89.02,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "20-29",
+        "50-59",
+        "60-69",
+        "10-19",
+        "70-79",
+        "30-39",
+        "40-49"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 0.4,
+      "pct_sin_estada": 0.04,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis4": {
+      "fuente": "egresos_deis",
+      "version": "2004",
+      "n_leidos": 1627748,
+      "n_hospitalizacion": 1627748,
+      "casos_por_modulo": {
+        "trauma": 6946,
+        "infecciones": 7645,
+        "fisuras": 365,
+        "craneosinostosis": 67,
+        "patologia_maxilar": 703,
+        "cancer_oral": 754,
+        "anomalias_dentofaciales": 376,
+        "atm": 92
+      },
+      "anios": 2004,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.2,
+      "pct_region_por_comuna": 99.8,
+      "region_fuente": {
+        "comuna": 1624413,
+        "sin resolver": 3335
+      },
+      "comuna_fuente": {
+        "código": 1624413,
+        "sin dato": 3335
+      },
+      "pct_sin_edad": 1.09,
+      "pct_sin_grupo_quinquenal": 89.08,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 1.09,
+      "pct_sin_estada": 0.02,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis5": {
+      "fuente": "egresos_deis",
+      "version": "2005",
+      "n_leidos": 1627743,
+      "n_hospitalizacion": 1627743,
+      "casos_por_modulo": {
+        "trauma": 6801,
+        "infecciones": 7365,
+        "fisuras": 337,
+        "craneosinostosis": 50,
+        "patologia_maxilar": 756,
+        "cancer_oral": 716,
+        "anomalias_dentofaciales": 444,
+        "atm": 96
+      },
+      "anios": 2005,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.28,
+      "pct_region_por_comuna": 99.72,
+      "region_fuente": {
+        "comuna": 1623232,
+        "sin resolver": 4511
+      },
+      "comuna_fuente": {
+        "código": 1623232,
+        "sin dato": 4511
+      },
+      "pct_sin_edad": 1.14,
+      "pct_sin_grupo_quinquenal": 88.89,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 1.14,
+      "pct_sin_estada": 0.02,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis6": {
+      "fuente": "egresos_deis",
+      "version": "2006",
+      "n_leidos": 1637920,
+      "n_hospitalizacion": 1637920,
+      "casos_por_modulo": {
+        "trauma": 6957,
+        "infecciones": 7425,
+        "fisuras": 430,
+        "craneosinostosis": 56,
+        "patologia_maxilar": 878,
+        "cancer_oral": 633,
+        "anomalias_dentofaciales": 448,
+        "atm": 107
+      },
+      "anios": 2006,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.2,
+      "pct_region_por_comuna": 99.8,
+      "region_fuente": {
+        "comuna": 1634684,
+        "sin resolver": 3236
+      },
+      "comuna_fuente": {
+        "código": 1634684,
+        "sin dato": 3236
+      },
+      "pct_sin_edad": 1.09,
+      "pct_sin_grupo_quinquenal": 88.94,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 1.09,
+      "pct_sin_estada": 0.02,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis7": {
+      "fuente": "egresos_deis",
+      "version": "2007",
+      "n_leidos": 1632888,
+      "n_hospitalizacion": 1632888,
+      "casos_por_modulo": {
+        "trauma": 6464,
+        "infecciones": 7669,
+        "fisuras": 387,
+        "craneosinostosis": 46,
+        "patologia_maxilar": 774,
+        "cancer_oral": 636,
+        "anomalias_dentofaciales": 538,
+        "atm": 112
+      },
+      "anios": 2007,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.22,
+      "pct_region_por_comuna": 99.78,
+      "region_fuente": {
+        "comuna": 1629367,
+        "sin resolver": 3521
+      },
+      "comuna_fuente": {
+        "código": 1629367,
+        "sin dato": 3521
+      },
+      "pct_sin_edad": 1.9,
+      "pct_sin_grupo_quinquenal": 88.65,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 1.9,
+      "pct_sin_estada": 0.02,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis8": {
+      "fuente": "egresos_deis",
+      "version": "2008",
+      "n_leidos": 1608540,
+      "n_hospitalizacion": 1608540,
+      "casos_por_modulo": {
+        "trauma": 6636,
+        "infecciones": 7659,
+        "fisuras": 490,
+        "craneosinostosis": 52,
+        "patologia_maxilar": 905,
+        "cancer_oral": 779,
+        "anomalias_dentofaciales": 490,
+        "atm": 100
+      },
+      "anios": 2008,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.22,
+      "pct_region_por_comuna": 99.78,
+      "region_fuente": {
+        "comuna": 1604987,
+        "sin resolver": 3553
+      },
+      "comuna_fuente": {
+        "código": 1604987,
+        "sin dato": 3553
+      },
+      "pct_sin_edad": 3,
+      "pct_sin_grupo_quinquenal": 88.07,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 3,
+      "pct_sin_estada": 0.03,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis9": {
+      "fuente": "egresos_deis",
+      "version": "2009",
+      "n_leidos": 1682054,
+      "n_hospitalizacion": 1682054,
+      "casos_por_modulo": {
+        "trauma": 6969,
+        "infecciones": 7404,
+        "fisuras": 370,
+        "craneosinostosis": 84,
+        "patologia_maxilar": 871,
+        "cancer_oral": 746,
+        "anomalias_dentofaciales": 531,
+        "atm": 122
+      },
+      "anios": 2009,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.32,
+      "pct_region_por_comuna": 99.68,
+      "region_fuente": {
+        "comuna": 1676655,
+        "sin resolver": 5399
+      },
+      "comuna_fuente": {
+        "código": 1676655,
+        "sin dato": 5399
+      },
+      "pct_sin_edad": 1.58,
+      "pct_sin_grupo_quinquenal": 88.47,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 1.58,
+      "pct_sin_estada": 0.03,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis10": {
+      "fuente": "egresos_deis",
+      "version": "2010",
+      "n_leidos": 1623875,
+      "n_hospitalizacion": 1623875,
+      "casos_por_modulo": {
+        "trauma": 6584,
+        "infecciones": 6660,
+        "fisuras": 376,
+        "craneosinostosis": 141,
+        "patologia_maxilar": 855,
+        "cancer_oral": 676,
+        "anomalias_dentofaciales": 603,
+        "atm": 122
+      },
+      "anios": 2010,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.22,
+      "pct_region_por_comuna": 99.78,
+      "region_fuente": {
+        "comuna": 1620267,
+        "sin resolver": 3608
+      },
+      "comuna_fuente": {
+        "código": 1620267,
+        "sin dato": 3608
+      },
+      "pct_sin_edad": 1.68,
+      "pct_sin_grupo_quinquenal": 88.04,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 1.68,
+      "pct_sin_estada": 0.03,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis11": {
+      "fuente": "egresos_deis",
+      "version": "2011",
+      "n_leidos": 1648687,
+      "n_hospitalizacion": 1648687,
+      "casos_por_modulo": {
+        "trauma": 6475,
+        "infecciones": 6707,
+        "fisuras": 407,
+        "craneosinostosis": 90,
+        "patologia_maxilar": 1083,
+        "cancer_oral": 786,
+        "anomalias_dentofaciales": 645,
+        "atm": 103
+      },
+      "anios": 2011,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.15,
+      "pct_region_por_comuna": 99.85,
+      "region_fuente": {
+        "comuna": 1646296,
+        "sin resolver": 2391
+      },
+      "comuna_fuente": {
+        "código": 1646296,
+        "sin dato": 2391
+      },
+      "pct_sin_edad": 2.46,
+      "pct_sin_grupo_quinquenal": 88.58,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 2.46,
+      "pct_sin_estada": 0.03,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis12": {
+      "fuente": "egresos_deis",
+      "version": "2012",
+      "n_leidos": 1670447,
+      "n_hospitalizacion": 1670447,
+      "casos_por_modulo": {
+        "trauma": 6494,
+        "infecciones": 6846,
+        "fisuras": 371,
+        "craneosinostosis": 99,
+        "patologia_maxilar": 1147,
+        "cancer_oral": 783,
+        "anomalias_dentofaciales": 717,
+        "atm": 151
+      },
+      "anios": 2012,
+      "campos_faltantes": [
+        "servicio_salud_estab",
+        "intervencion"
+      ],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.92,
+      "pct_region_por_comuna": 99.08,
+      "region_fuente": {
+        "comuna": 1655044,
+        "sin resolver": 15403
+      },
+      "comuna_fuente": {
+        "código": 1655041,
+        "código antiguo": 3,
+        "sin dato": 15403
+      },
+      "pct_sin_edad": 0,
+      "pct_sin_grupo_quinquenal": 0,
+      "etiquetas_edad_sin_grupo": [],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 0.66,
+      "pct_sin_estada": 0.02,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis13": {
+      "fuente": "egresos_deis",
+      "version": "2013",
+      "n_leidos": 1676936,
+      "n_hospitalizacion": 1676936,
+      "casos_por_modulo": {
+        "trauma": 6472,
+        "infecciones": 6606,
+        "fisuras": 335,
+        "craneosinostosis": 83,
+        "patologia_maxilar": 1168,
+        "cancer_oral": 899,
+        "anomalias_dentofaciales": 710,
+        "atm": 140
+      },
+      "anios": 2013,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.22,
+      "pct_region_por_comuna": 99.78,
+      "region_fuente": {
+        "comuna": 1673224,
+        "sin resolver": 3712
+      },
+      "comuna_fuente": {
+        "código": 1673224,
+        "sin dato": 3712
+      },
+      "pct_sin_edad": 2.72,
+      "pct_sin_grupo_quinquenal": 88.93,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 2.72,
+      "pct_sin_estada": 0.03,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis14": {
+      "fuente": "egresos_deis",
+      "version": "2014",
+      "n_leidos": 1660151,
+      "n_hospitalizacion": 1660151,
+      "casos_por_modulo": {
+        "trauma": 6435,
+        "infecciones": 6101,
+        "fisuras": 380,
+        "craneosinostosis": 106,
+        "patologia_maxilar": 1304,
+        "cancer_oral": 821,
+        "anomalias_dentofaciales": 815,
+        "atm": 181
+      },
+      "anios": 2014,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.6,
+      "pct_region_por_comuna": 99.4,
+      "region_fuente": {
+        "comuna": 1650217,
+        "sin resolver": 9934
+      },
+      "comuna_fuente": {
+        "código": 1650217,
+        "sin dato": 9934
+      },
+      "pct_sin_edad": 2.89,
+      "pct_sin_grupo_quinquenal": 88.9,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 2.89,
+      "pct_sin_estada": 0.02,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis15": {
+      "fuente": "egresos_deis",
+      "version": "2015",
+      "n_leidos": 1671054,
+      "n_hospitalizacion": 1671054,
+      "casos_por_modulo": {
+        "trauma": 6537,
+        "infecciones": 6209,
+        "fisuras": 365,
+        "craneosinostosis": 132,
+        "patologia_maxilar": 1587,
+        "cancer_oral": 887,
+        "anomalias_dentofaciales": 879,
+        "atm": 217
+      },
+      "anios": 2015,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.3,
+      "pct_region_por_comuna": 99.7,
+      "region_fuente": {
+        "comuna": 1666007,
+        "sin resolver": 5047
+      },
+      "comuna_fuente": {
+        "código": 1666007,
+        "sin dato": 5047
+      },
+      "pct_sin_edad": 2.38,
+      "pct_sin_grupo_quinquenal": 88.76,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 2.39,
+      "pct_sin_estada": 0.03,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis16": {
+      "fuente": "egresos_deis",
+      "version": "2016",
+      "n_leidos": 1637265,
+      "n_hospitalizacion": 1637265,
+      "casos_por_modulo": {
+        "trauma": 6216,
+        "infecciones": 6017,
+        "fisuras": 355,
+        "craneosinostosis": 112,
+        "patologia_maxilar": 1773,
+        "cancer_oral": 809,
+        "anomalias_dentofaciales": 1107,
+        "atm": 276
+      },
+      "anios": 2016,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.24,
+      "pct_region_por_comuna": 99.76,
+      "region_fuente": {
+        "comuna": 1633340,
+        "sin resolver": 3925
+      },
+      "comuna_fuente": {
+        "código": 1633340,
+        "sin dato": 3925
+      },
+      "pct_sin_edad": 2,
+      "pct_sin_grupo_quinquenal": 88.79,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 2,
+      "pct_sin_estada": 0.03,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis17": {
+      "fuente": "egresos_deis",
+      "version": "2017",
+      "n_leidos": 1637150,
+      "n_hospitalizacion": 1637150,
+      "casos_por_modulo": {
+        "trauma": 6051,
+        "infecciones": 5872,
+        "fisuras": 357,
+        "craneosinostosis": 134,
+        "patologia_maxilar": 1606,
+        "cancer_oral": 888,
+        "anomalias_dentofaciales": 1239,
+        "atm": 316
+      },
+      "anios": 2017,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.38,
+      "pct_region_por_comuna": 99.62,
+      "region_fuente": {
+        "comuna": 1630859,
+        "sin resolver": 6291
+      },
+      "comuna_fuente": {
+        "código": 1630859,
+        "sin dato": 6291
+      },
+      "pct_sin_edad": 2.15,
+      "pct_sin_grupo_quinquenal": 88.62,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 2.15,
+      "pct_sin_estada": 0.03,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis18": {
+      "fuente": "egresos_deis",
+      "version": "2018",
+      "n_leidos": 1669602,
+      "n_hospitalizacion": 1669602,
+      "casos_por_modulo": {
+        "trauma": 6217,
+        "infecciones": 6331,
+        "fisuras": 335,
+        "craneosinostosis": 163,
+        "patologia_maxilar": 1665,
+        "cancer_oral": 954,
+        "anomalias_dentofaciales": 1282,
+        "atm": 383
+      },
+      "anios": 2018,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 1.17,
+      "pct_region_por_comuna": 98.83,
+      "region_fuente": {
+        "comuna": 1650123,
+        "sin resolver": 19479
+      },
+      "comuna_fuente": {
+        "código": 1650123,
+        "sin dato": 19479
+      },
+      "pct_sin_edad": 2.94,
+      "pct_sin_grupo_quinquenal": 88.6,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 2.94,
+      "pct_sin_estada": 0.03,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis19": {
+      "fuente": "egresos_deis",
+      "version": "2019",
+      "n_leidos": 1667180,
+      "n_hospitalizacion": 1667180,
+      "casos_por_modulo": {
+        "trauma": 6314,
+        "infecciones": 6226,
+        "fisuras": 306,
+        "craneosinostosis": 150,
+        "patologia_maxilar": 1612,
+        "cancer_oral": 913,
+        "anomalias_dentofaciales": 1346,
+        "atm": 423
+      },
+      "anios": 2019,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.87,
+      "pct_region_por_comuna": 99.13,
+      "region_fuente": {
+        "comuna": 1652721,
+        "sin resolver": 14459
+      },
+      "comuna_fuente": {
+        "código": 1652721,
+        "sin dato": 14459
+      },
+      "pct_sin_edad": 2.63,
+      "pct_sin_grupo_quinquenal": 88.44,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 2.63,
+      "pct_sin_estada": 0.03,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis20": {
+      "fuente": "egresos_deis",
+      "version": "2020",
+      "n_leidos": 1330477,
+      "n_hospitalizacion": 1330477,
+      "casos_por_modulo": {
+        "trauma": 4977,
+        "infecciones": 3723,
+        "fisuras": 245,
+        "craneosinostosis": 96,
+        "patologia_maxilar": 985,
+        "cancer_oral": 768,
+        "anomalias_dentofaciales": 767,
+        "atm": 333
+      },
+      "anios": 2020,
+      "campos_faltantes": "servicio_salud_estab",
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.71,
+      "pct_region_por_comuna": 99.29,
+      "region_fuente": {
+        "comuna": 1321055,
+        "sin resolver": 9422
+      },
+      "comuna_fuente": {
+        "código": 1321055,
+        "sin dato": 9422
+      },
+      "pct_sin_edad": 2.82,
+      "pct_sin_grupo_quinquenal": 89.35,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 2.82,
+      "pct_sin_estada": 0.04,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis21": {
+      "fuente": "egresos_deis",
+      "version": "2021",
+      "n_leidos": 1467062,
+      "n_hospitalizacion": 1467062,
+      "casos_por_modulo": {
+        "trauma": 4417,
+        "infecciones": 3304,
+        "fisuras": 315,
+        "craneosinostosis": 153,
+        "patologia_maxilar": 1271,
+        "cancer_oral": 882,
+        "anomalias_dentofaciales": 1143,
+        "atm": 425
+      },
+      "anios": 2021,
+      "campos_faltantes": [
+        "servicio_salud_estab",
+        "intervencion"
+      ],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.71,
+      "pct_region_por_comuna": 99.29,
+      "region_fuente": {
+        "comuna": 1456692,
+        "sin resolver": 10370
+      },
+      "comuna_fuente": {
+        "código": 1456692,
+        "sin dato": 10370
+      },
+      "pct_sin_edad": 0,
+      "pct_sin_grupo_quinquenal": 0,
+      "etiquetas_edad_sin_grupo": [],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 0,
+      "pct_sin_estada": 0.04,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis22": {
+      "fuente": "egresos_deis",
+      "version": "2022",
+      "n_leidos": 1597118,
+      "n_hospitalizacion": 1597118,
+      "casos_por_modulo": {
+        "trauma": 4917,
+        "infecciones": 4205,
+        "fisuras": 309,
+        "craneosinostosis": 102,
+        "patologia_maxilar": 1499,
+        "cancer_oral": 1004,
+        "anomalias_dentofaciales": 1758,
+        "atm": 690
+      },
+      "anios": 2022,
+      "campos_faltantes": [
+        "servicio_salud_estab",
+        "intervencion"
+      ],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.73,
+      "pct_region_por_comuna": 99.27,
+      "region_fuente": {
+        "comuna": 1585427,
+        "sin resolver": 11691
+      },
+      "comuna_fuente": {
+        "código": 1585427,
+        "sin dato": 11691
+      },
+      "pct_sin_edad": 2.48,
+      "pct_sin_grupo_quinquenal": 88.96,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 2.48,
+      "pct_sin_estada": 0.03,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis23": {
+      "fuente": "egresos_deis",
+      "version": "2023",
+      "n_leidos": 1612267,
+      "n_hospitalizacion": 1612267,
+      "casos_por_modulo": {
+        "trauma": 4950,
+        "infecciones": 5322,
+        "fisuras": 255,
+        "craneosinostosis": 112,
+        "patologia_maxilar": 1295,
+        "cancer_oral": 990,
+        "anomalias_dentofaciales": 1959,
+        "atm": 705
+      },
+      "anios": 2023,
+      "campos_faltantes": [
+        "servicio_salud_estab",
+        "intervencion"
+      ],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 8.75,
+      "pct_region_por_comuna": 91.25,
+      "region_fuente": {
+        "comuna": 1471234,
+        "sin resolver": 141033
+      },
+      "comuna_fuente": {
+        "código": 1471234,
+        "sin dato": 141033
+      },
+      "pct_sin_edad": 7.95,
+      "pct_sin_grupo_quinquenal": 89.73,
+      "etiquetas_edad_sin_grupo": [
+        "1-9",
+        "10-19",
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 7.95,
+      "pct_sin_estada": 0.04,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis24": {
+      "fuente": "egresos_deis",
+      "version": "2024",
+      "n_leidos": 1667349,
+      "n_hospitalizacion": 1667349,
+      "casos_por_modulo": {
+        "trauma": 5202,
+        "infecciones": 6550,
+        "fisuras": 319,
+        "craneosinostosis": 141,
+        "patologia_maxilar": 1349,
+        "cancer_oral": 1119,
+        "anomalias_dentofaciales": 1992,
+        "atm": 600
+      },
+      "anios": 2024,
+      "campos_faltantes": [
+        "servicio_salud_estab",
+        "intervencion"
+      ],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 2.88,
+      "pct_region_por_comuna": 97.12,
+      "region_fuente": {
+        "comuna": 1619382,
+        "sin resolver": 47967
+      },
+      "comuna_fuente": {
+        "código": 1619382,
+        "sin dato": 47967
+      },
+      "pct_sin_edad": 0,
+      "pct_sin_grupo_quinquenal": 0,
+      "etiquetas_edad_sin_grupo": [],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 1.7,
+      "pct_sin_estada": 0.04,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "egresos_deis25": {
+      "fuente": "egresos_deis",
+      "version": "2025",
+      "n_leidos": 1705514,
+      "n_hospitalizacion": 1705514,
+      "casos_por_modulo": {
+        "trauma": 5197,
+        "infecciones": 6592,
+        "fisuras": 165,
+        "craneosinostosis": 93,
+        "patologia_maxilar": 1320,
+        "cancer_oral": 1102,
+        "anomalias_dentofaciales": 1950,
+        "atm": 779
+      },
+      "anios": 2025,
+      "campos_faltantes": [
+        "servicio_salud_estab",
+        "intervencion"
+      ],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 7.97,
+      "pct_region_por_comuna": 92.03,
+      "region_fuente": {
+        "comuna": 1569581,
+        "sin resolver": 135933
+      },
+      "comuna_fuente": {
+        "código": 1569581,
+        "sin dato": 135933
+      },
+      "pct_sin_edad": 6.98,
+      "pct_sin_grupo_quinquenal": 89.65,
+      "etiquetas_edad_sin_grupo": [
+        "70-79",
+        "60-69",
+        "50-59",
+        "10-19",
+        "20-29",
+        "1-9",
+        "40-49",
+        "30-39"
+      ],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 6.98,
+      "pct_sin_estada": 0.04,
+      "textos_codificacion": {
+        "grupo_edad": {
+          "reparados": 0,
+          "danados": 63876
+        }
+      },
+      "codificacion_archivo": "UTF-8"
+    },
+    "grd1": {
+      "fuente": "grd",
+      "version": "2019",
+      "n_leidos": 1151475,
+      "n_hospitalizacion": 886627,
+      "casos_por_modulo": {
+        "trauma": 5427,
+        "infecciones": 2956,
+        "craneosinostosis": 124,
+        "patologia_maxilar": 1719,
+        "cancer_oral": 424,
+        "anomalias_dentofaciales": 525,
+        "atm": 102,
+        "fisuras": 443
+      },
+      "anios": 2019,
+      "campos_faltantes": [],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.06,
+      "pct_region_por_comuna": 99.76,
+      "region_fuente": {
+        "comuna": 1148695,
+        "provincia": 2125,
+        "sin resolver": 655
+      },
+      "comuna_fuente": {
+        "extranjero/ignorado": 912,
+        "nombre": 1148695,
+        "nombre no reconocido": 1868
+      },
+      "pct_sin_edad": 0,
+      "pct_sin_grupo_quinquenal": 0,
+      "etiquetas_edad_sin_grupo": [],
+      "pct_fallecido_na": 0.01,
+      "pct_sin_sexo": 0.01,
+      "pct_sin_estada": 0.01,
+      "textos_codificacion": [],
+      "codificacion_archivo": "UTF-8"
+    },
+    "grd2": {
+      "fuente": "grd",
+      "version": "2020",
+      "n_leidos": 781912,
+      "n_hospitalizacion": 702275,
+      "casos_por_modulo": {
+        "trauma": 5635,
+        "infecciones": 1941,
+        "craneosinostosis": 64,
+        "patologia_maxilar": 1071,
+        "cancer_oral": 333,
+        "anomalias_dentofaciales": 219,
+        "atm": 55,
+        "fisuras": 384
+      },
+      "anios": 2020,
+      "campos_faltantes": [],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0.02,
+      "pct_region_por_comuna": 99.84,
+      "region_fuente": {
+        "comuna": 780656,
+        "provincia": 1081,
+        "sin resolver": 175
+      },
+      "comuna_fuente": {
+        "extranjero/ignorado": 246,
+        "nombre": 780656,
+        "nombre no reconocido": 1010
+      },
+      "pct_sin_edad": 0,
+      "pct_sin_grupo_quinquenal": 0,
+      "etiquetas_edad_sin_grupo": [],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 0.02,
+      "pct_sin_estada": 0.01,
+      "textos_codificacion": [],
+      "codificacion_archivo": "UTF-8"
+    },
+    "grd3": {
+      "fuente": "grd",
+      "version": "2021",
+      "n_leidos": 816909,
+      "n_hospitalizacion": 713978,
+      "casos_por_modulo": {
+        "trauma": 5360,
+        "infecciones": 1666,
+        "craneosinostosis": 97,
+        "patologia_maxilar": 1243,
+        "cancer_oral": 332,
+        "anomalias_dentofaciales": 256,
+        "atm": 63,
+        "fisuras": 341
+      },
+      "anios": 2021,
+      "campos_faltantes": [],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0,
+      "pct_region_por_comuna": 99.87,
+      "region_fuente": {
+        "comuna": 815843,
+        "provincia": 1052,
+        "sin resolver": 14
+      },
+      "comuna_fuente": {
+        "extranjero/ignorado": 19,
+        "nombre": 815843,
+        "nombre no reconocido": 1047
+      },
+      "pct_sin_edad": 0,
+      "pct_sin_grupo_quinquenal": 0,
+      "etiquetas_edad_sin_grupo": [],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 0.01,
+      "pct_sin_estada": 0.01,
+      "textos_codificacion": [],
+      "codificacion_archivo": "UTF-8"
+    },
+    "grd4": {
+      "fuente": "grd",
+      "version": "2022",
+      "n_leidos": 932840,
+      "n_hospitalizacion": 778073,
+      "casos_por_modulo": {
+        "trauma": 5741,
+        "infecciones": 2030,
+        "craneosinostosis": 66,
+        "patologia_maxilar": 1456,
+        "cancer_oral": 454,
+        "anomalias_dentofaciales": 471,
+        "atm": 77,
+        "fisuras": 409
+      },
+      "anios": 2022,
+      "campos_faltantes": [],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0,
+      "pct_region_por_comuna": 99.86,
+      "region_fuente": {
+        "comuna": 931552,
+        "provincia": 1256,
+        "sin resolver": 32
+      },
+      "comuna_fuente": {
+        "extranjero/ignorado": 72,
+        "nombre": 931552,
+        "nombre no reconocido": 1216
+      },
+      "pct_sin_edad": 0,
+      "pct_sin_grupo_quinquenal": 0,
+      "etiquetas_edad_sin_grupo": [],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 0.01,
+      "pct_sin_estada": 0.01,
+      "textos_codificacion": [],
+      "codificacion_archivo": "UTF-16LE"
+    },
+    "grd5": {
+      "fuente": "grd",
+      "version": "2023",
+      "n_leidos": 1039587,
+      "n_hospitalizacion": 846043,
+      "casos_por_modulo": {
+        "trauma": 6266,
+        "infecciones": 2733,
+        "craneosinostosis": 84,
+        "patologia_maxilar": 1829,
+        "cancer_oral": 450,
+        "anomalias_dentofaciales": 631,
+        "atm": 86,
+        "fisuras": 422
+      },
+      "anios": 2023,
+      "campos_faltantes": [],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0,
+      "pct_region_por_comuna": 99.82,
+      "region_fuente": {
+        "comuna": 1037748,
+        "provincia": 1835,
+        "sin resolver": 4
+      },
+      "comuna_fuente": {
+        "extranjero/ignorado": 5,
+        "nombre": 1037748,
+        "nombre no reconocido": 1834
+      },
+      "pct_sin_edad": 0,
+      "pct_sin_grupo_quinquenal": 0,
+      "etiquetas_edad_sin_grupo": [],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 0,
+      "pct_sin_estada": 0.01,
+      "textos_codificacion": [],
+      "codificacion_archivo": "UTF-16LE"
+    },
+    "grd6": {
+      "fuente": "grd",
+      "version": "2024",
+      "n_leidos": 1085813,
+      "n_hospitalizacion": 873772,
+      "casos_por_modulo": {
+        "trauma": 6560,
+        "infecciones": 3807,
+        "craneosinostosis": 102,
+        "patologia_maxilar": 2264,
+        "cancer_oral": 517,
+        "anomalias_dentofaciales": 628,
+        "atm": 85,
+        "fisuras": 352
+      },
+      "anios": 2024,
+      "campos_faltantes": [],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 0,
+      "pct_region_por_comuna": 99.82,
+      "region_fuente": {
+        "comuna": 1083876,
+        "provincia": 1930,
+        "sin resolver": 7
+      },
+      "comuna_fuente": {
+        "extranjero/ignorado": 7,
+        "nombre": 1083876,
+        "nombre no reconocido": 1930
+      },
+      "pct_sin_edad": 0.01,
+      "pct_sin_grupo_quinquenal": 0.01,
+      "etiquetas_edad_sin_grupo": [],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 0.01,
+      "pct_sin_estada": 0.01,
+      "textos_codificacion": [],
+      "codificacion_archivo": "Latin-1"
+    },
+    "grd7": {
+      "fuente": "grd",
+      "version": "2025",
+      "n_leidos": 1136077,
+      "n_hospitalizacion": 898920,
+      "casos_por_modulo": {
+        "trauma": 6695,
+        "infecciones": 3924,
+        "craneosinostosis": 73,
+        "patologia_maxilar": 2307,
+        "cancer_oral": 546,
+        "anomalias_dentofaciales": 708,
+        "atm": 121,
+        "fisuras": 317
+      },
+      "anios": 2025,
+      "campos_faltantes": [],
+      "valores_no_reconocidos": [],
+      "pct_sin_region": 4.01,
+      "pct_region_por_comuna": 0,
+      "region_fuente": {
+        "provincia": 1090477,
+        "sin resolver": 45600
+      },
+      "comuna_fuente": {
+        "sin dato": 1136077
+      },
+      "pct_sin_edad": 0,
+      "pct_sin_grupo_quinquenal": 0,
+      "etiquetas_edad_sin_grupo": [],
+      "pct_fallecido_na": 0,
+      "pct_sin_sexo": 0.01,
+      "pct_sin_estada": 0.01,
+      "textos_codificacion": [],
+      "codificacion_archivo": "UTF-8"
+    }
+  }
+}

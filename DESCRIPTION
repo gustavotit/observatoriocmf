@@ -1,0 +1,33 @@
+Package: observatoriocmf
+Type: Package
+Title: Observatorio CMF Chile: Epidemiología Craneomaxilofacial con Datos DEIS y GRD
+Version: 0.1.0
+Authors@R: person("Gustavo", "Sáenz-Ravello", email = "gustasaenzravello@gmail.com",
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0000-0000-0000"))
+Description: Datos agregados, tasas crudas y ajustadas por edad, indicadores clínicos y de costos
+    para condiciones craneomaxilofaciales en Chile, construidos a partir de egresos hospitalarios
+    y defunciones del DEIS y de casos GRD. Incluye funciones para consultar, graficar, exportar
+    figuras con formato de revista y generar citas, párrafos de métodos y código reproducible.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: es
+Depends: R (>= 4.1)
+Imports:
+    data.table,
+    ggplot2,
+    jsonlite,
+    patchwork,
+    yaml
+Suggests:
+    arrow,
+    bslib,
+    digest,
+    DT,
+    httr2,
+    R.utils,
+    readxl,
+    shiny,
+    shinymanager,
+    svglite,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

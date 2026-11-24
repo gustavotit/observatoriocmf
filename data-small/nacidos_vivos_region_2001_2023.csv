@@ -1,0 +1,369 @@
+anio,region,region_nombre,nacidos_vivos
+2001,1,De Tarapacá,4787
+2001,2,De Antofagasta,8709
+2001,3,De Atacama,4603
+2001,4,De Coquimbo,10199
+2001,5,De Valparaíso,23870
+2001,6,Del Libertador B. O'Higgins,12183
+2001,7,Del Maule,13967
+2001,8,Del Bíobío,22562
+2001,9,De La Araucanía,13657
+2001,10,De Los Lagos,12092
+2001,11,De Aisén del Gral. C. Ibáñez del Campo,1595
+2001,12,De Magallanes y de La Antártica Chilena,2232
+2001,13,Metropolitana de Santiago,100694
+2001,14,De Los Ríos,5415
+2001,15,De Arica y Parinacota,3141
+2001,16,De Ñuble,6410
+2002,1,De Tarapacá,4467
+2002,2,De Antofagasta,8842
+2002,3,De Atacama,4310
+2002,4,De Coquimbo,9608
+2002,5,De Valparaíso,23173
+2002,6,Del Libertador B. O'Higgins,11978
+2002,7,Del Maule,13730
+2002,8,Del Bíobío,21739
+2002,9,De La Araucanía,13456
+2002,10,De Los Lagos,12128
+2002,11,De Aisén del Gral. C. Ibáñez del Campo,1579
+2002,12,De Magallanes y de La Antártica Chilena,2243
+2002,13,Metropolitana de Santiago,96995
+2002,14,De Los Ríos,5378
+2002,15,De Arica y Parinacota,3104
+2002,16,De Ñuble,6251
+2003,1,De Tarapacá,4571
+2003,2,De Antofagasta,8663
+2003,3,De Atacama,4407
+2003,4,De Coquimbo,9459
+2003,5,De Valparaíso,22481
+2003,6,Del Libertador B. O'Higgins,11799
+2003,7,Del Maule,13453
+2003,8,Del Bíobío,21889
+2003,9,De La Araucanía,13013
+2003,10,De Los Lagos,11766
+2003,11,De Aisén del Gral. C. Ibáñez del Campo,1578
+2003,12,De Magallanes y de La Antártica Chilena,2198
+2003,13,Metropolitana de Santiago,94728
+2003,14,De Los Ríos,5169
+2003,15,De Arica y Parinacota,3161
+2003,16,De Ñuble,6151
+2004,1,De Tarapacá,4583
+2004,2,De Antofagasta,8600
+2004,3,De Atacama,4212
+2004,4,De Coquimbo,9207
+2004,5,De Valparaíso,21961
+2004,6,Del Libertador B. O'Higgins,11765
+2004,7,Del Maule,13200
+2004,8,Del Bíobío,20811
+2004,9,De La Araucanía,13126
+2004,10,De Los Lagos,11825
+2004,11,De Aisén del Gral. C. Ibáñez del Campo,1593
+2004,12,De Magallanes y de La Antártica Chilena,2088
+2004,13,Metropolitana de Santiago,93084
+2004,14,De Los Ríos,5139
+2004,15,De Arica y Parinacota,3107
+2004,16,De Ñuble,6051
+2005,1,De Tarapacá,4776
+2005,2,De Antofagasta,8551
+2005,3,De Atacama,4296
+2005,4,De Coquimbo,9493
+2005,5,De Valparaíso,22236
+2005,6,Del Libertador B. O'Higgins,11796
+2005,7,Del Maule,13307
+2005,8,Del Bíobío,20806
+2005,9,De La Araucanía,12866
+2005,10,De Los Lagos,12015
+2005,11,De Aisén del Gral. C. Ibáñez del Campo,1586
+2005,12,De Magallanes y de La Antártica Chilena,2161
+2005,13,Metropolitana de Santiago,92773
+2005,14,De Los Ríos,5086
+2005,15,De Arica y Parinacota,3123
+2005,16,De Ñuble,5960
+2006,1,De Tarapacá,4761
+2006,2,De Antofagasta,8975
+2006,3,De Atacama,4648
+2006,4,De Coquimbo,9372
+2006,5,De Valparaíso,21672
+2006,6,Del Libertador B. O'Higgins,11517
+2006,7,Del Maule,13099
+2006,8,Del Bíobío,21085
+2006,9,De La Araucanía,13016
+2006,10,De Los Lagos,11758
+2006,11,De Aisén del Gral. C. Ibáñez del Campo,1563
+2006,12,De Magallanes y de La Antártica Chilena,2127
+2006,13,Metropolitana de Santiago,93593
+2006,14,De Los Ríos,5155
+2006,15,De Arica y Parinacota,3099
+2006,16,De Ñuble,5943
+2007,1,De Tarapacá,5017
+2007,2,De Antofagasta,9419
+2007,3,De Atacama,4720
+2007,4,De Coquimbo,9794
+2007,5,De Valparaíso,22659
+2007,6,Del Libertador B. O'Higgins,12199
+2007,7,Del Maule,13566
+2007,8,Del Bíobío,21558
+2007,9,De La Araucanía,13418
+2007,10,De Los Lagos,12335
+2007,11,De Aisén del Gral. C. Ibáñez del Campo,1679
+2007,12,De Magallanes y de La Antártica Chilena,2173
+2007,13,Metropolitana de Santiago,97596
+2007,14,De Los Ríos,5154
+2007,15,De Arica y Parinacota,3158
+2007,16,De Ñuble,6124
+2008,1,De Tarapacá,5287
+2008,2,De Antofagasta,9706
+2008,3,De Atacama,4803
+2008,4,De Coquimbo,10447
+2008,5,De Valparaíso,23116
+2008,6,Del Libertador B. O'Higgins,12592
+2008,7,Del Maule,14045
+2008,8,Del Bíobío,21601
+2008,9,De La Araucanía,13494
+2008,10,De Los Lagos,12772
+2008,11,De Aisén del Gral. C. Ibáñez del Campo,1733
+2008,12,De Magallanes y de La Antártica Chilena,2264
+2008,13,Metropolitana de Santiago,99873
+2008,14,De Los Ríos,5306
+2008,15,De Arica y Parinacota,3364
+2008,16,De Ñuble,6178
+2009,1,De Tarapacá,5692
+2009,2,De Antofagasta,9988
+2009,3,De Atacama,5194
+2009,4,De Coquimbo,10801
+2009,5,De Valparaíso,23735
+2009,6,Del Libertador B. O'Higgins,12731
+2009,7,Del Maule,14108
+2009,8,Del Bíobío,22166
+2009,9,De La Araucanía,13546
+2009,10,De Los Lagos,13072
+2009,11,De Aisén del Gral. C. Ibáñez del Campo,1687
+2009,12,De Magallanes y de La Antártica Chilena,2217
+2009,13,Metropolitana de Santiago,102248
+2009,14,De Los Ríos,5349
+2009,15,De Arica y Parinacota,3559
+2009,16,De Ñuble,6147
+2010,1,De Tarapacá,5637
+2010,2,De Antofagasta,10016
+2010,3,De Atacama,5069
+2010,4,De Coquimbo,11225
+2010,5,De Valparaíso,23788
+2010,6,Del Libertador B. O'Higgins,12723
+2010,7,Del Maule,14103
+2010,8,Del Bíobío,22293
+2010,9,De La Araucanía,13367
+2010,10,De Los Lagos,12413
+2010,11,De Aisén del Gral. C. Ibáñez del Campo,1636
+2010,12,De Magallanes y de La Antártica Chilena,2243
+2010,13,Metropolitana de Santiago,101047
+2010,14,De Los Ríos,5433
+2010,15,De Arica y Parinacota,3646
+2010,16,De Ñuble,6004
+2011,1,De Tarapacá,5753
+2011,2,De Antofagasta,9932
+2011,3,De Atacama,5116
+2011,4,De Coquimbo,11148
+2011,5,De Valparaíso,23568
+2011,6,Del Libertador B. O'Higgins,12189
+2011,7,Del Maule,13640
+2011,8,Del Bíobío,21986
+2011,9,De La Araucanía,13295
+2011,10,De Los Lagos,11911
+2011,11,De Aisén del Gral. C. Ibáñez del Campo,1545
+2011,12,De Magallanes y de La Antártica Chilena,2118
+2011,13,Metropolitana de Santiago,100415
+2011,14,De Los Ríos,5176
+2011,15,De Arica y Parinacota,3640
+2011,16,De Ñuble,5926
+2012,1,De Tarapacá,5721
+2012,2,De Antofagasta,9817
+2012,3,De Atacama,4855
+2012,4,De Coquimbo,11217
+2012,5,De Valparaíso,23619
+2012,6,Del Libertador B. O'Higgins,12119
+2012,7,Del Maule,13429
+2012,8,Del Bíobío,20997
+2012,9,De La Araucanía,13024
+2012,10,De Los Lagos,11287
+2012,11,De Aisén del Gral. C. Ibáñez del Campo,1540
+2012,12,De Magallanes y de La Antártica Chilena,2108
+2012,13,Metropolitana de Santiago,99488
+2012,14,De Los Ríos,5124
+2012,15,De Arica y Parinacota,3558
+2012,16,De Ñuble,5732
+2013,1,De Tarapacá,5766
+2013,2,De Antofagasta,9841
+2013,3,De Atacama,4849
+2013,4,De Coquimbo,11343
+2013,5,De Valparaíso,23127
+2013,6,Del Libertador B. O'Higgins,12113
+2013,7,Del Maule,13714
+2013,8,Del Bíobío,20714
+2013,9,De La Araucanía,12877
+2013,10,De Los Lagos,11191
+2013,11,De Aisén del Gral. C. Ibáñez del Campo,1440
+2013,12,De Magallanes y de La Antártica Chilena,2041
+2013,13,Metropolitana de Santiago,99081
+2013,14,De Los Ríos,4814
+2013,15,De Arica y Parinacota,3504
+2013,16,De Ñuble,5590
+2014,1,De Tarapacá,5835
+2014,2,De Antofagasta,10191
+2014,3,De Atacama,5014
+2014,4,De Coquimbo,11577
+2014,5,De Valparaíso,24125
+2014,6,Del Libertador B. O'Higgins,12412
+2014,7,Del Maule,14345
+2014,8,Del Bíobío,21600
+2014,9,De La Araucanía,13313
+2014,10,De Los Lagos,11380
+2014,11,De Aisén del Gral. C. Ibáñez del Campo,1535
+2014,12,De Magallanes y de La Antártica Chilena,2103
+2014,13,Metropolitana de Santiago,103059
+2014,14,De Los Ríos,5063
+2014,15,De Arica y Parinacota,3546
+2014,16,De Ñuble,5899
+2015,1,De Tarapacá,5712
+2015,2,De Antofagasta,9885
+2015,3,De Atacama,4466
+2015,4,De Coquimbo,11010
+2015,5,De Valparaíso,23598
+2015,6,Del Libertador B. O'Higgins,12050
+2015,7,Del Maule,14068
+2015,8,Del Bíobío,21023
+2015,9,De La Araucanía,13324
+2015,10,De Los Lagos,11158
+2015,11,De Aisén del Gral. C. Ibáñez del Campo,1413
+2015,12,De Magallanes y de La Antártica Chilena,2032
+2015,13,Metropolitana de Santiago,101087
+2015,14,De Los Ríos,4664
+2015,15,De Arica y Parinacota,3414
+2015,16,De Ñuble,5766
+2016,1,De Tarapacá,5419
+2016,2,De Antofagasta,9214
+2016,3,De Atacama,4230
+2016,4,De Coquimbo,10126
+2016,5,De Valparaíso,22165
+2016,6,Del Libertador B. O'Higgins,11416
+2016,7,Del Maule,13225
+2016,8,Del Bíobío,19583
+2016,9,De La Araucanía,12534
+2016,10,De Los Lagos,10787
+2016,11,De Aisén del Gral. C. Ibáñez del Campo,1408
+2016,12,De Magallanes y de La Antártica Chilena,1873
+2016,13,Metropolitana de Santiago,96617
+2016,14,De Los Ríos,4532
+2016,15,De Arica y Parinacota,3169
+2016,16,De Ñuble,5451
+2017,1,De Tarapacá,5081
+2017,2,De Antofagasta,8396
+2017,3,De Atacama,3929
+2017,4,De Coquimbo,9215
+2017,5,De Valparaíso,20357
+2017,6,Del Libertador B. O'Higgins,10887
+2017,7,Del Maule,12632
+2017,8,Del Bíobío,18175
+2017,9,De La Araucanía,12005
+2017,10,De Los Lagos,10046
+2017,11,De Aisén del Gral. C. Ibáñez del Campo,1215
+2017,12,De Magallanes y de La Antártica Chilena,1883
+2017,13,Metropolitana de Santiago,92727
+2017,14,De Los Ríos,4268
+2017,15,De Arica y Parinacota,3037
+2017,16,De Ñuble,5333
+2018,1,De Tarapacá,4955
+2018,2,De Antofagasta,8049
+2018,3,De Atacama,3730
+2018,4,De Coquimbo,9095
+2018,5,De Valparaíso,21002
+2018,6,Del Libertador B. O'Higgins,11248
+2018,7,Del Maule,13070
+2018,8,Del Bíobío,17652
+2018,9,De La Araucanía,11772
+2018,10,De Los Lagos,9921
+2018,11,De Aisén del Gral. C. Ibáñez del Campo,1258
+2018,12,De Magallanes y de La Antártica Chilena,1757
+2018,13,Metropolitana de Santiago,95834
+2018,14,De Los Ríos,4106
+2018,15,De Arica y Parinacota,2958
+2018,16,De Ñuble,5324
+2019,1,De Tarapacá,4878
+2019,2,De Antofagasta,7770
+2019,3,De Atacama,3425
+2019,4,De Coquimbo,8665
+2019,5,De Valparaíso,19619
+2019,6,Del Libertador B. O'Higgins,10756
+2019,7,Del Maule,12496
+2019,8,Del Bíobío,17106
+2019,9,De La Araucanía,11302
+2019,10,De Los Lagos,9574
+2019,11,De Aisén del Gral. C. Ibáñez del Campo,1120
+2019,12,De Magallanes y de La Antártica Chilena,1743
+2019,13,Metropolitana de Santiago,89771
+2019,14,De Los Ríos,4004
+2019,15,De Arica y Parinacota,2893
+2019,16,De Ñuble,5065
+2020,1,De Tarapacá,4709
+2020,2,De Antofagasta,7434
+2020,3,De Atacama,3247
+2020,4,De Coquimbo,8127
+2020,5,De Valparaíso,18427
+2020,6,Del Libertador B. O'Higgins,10245
+2020,7,Del Maule,11667
+2020,8,Del Bíobío,16006
+2020,9,De La Araucanía,10441
+2020,10,De Los Lagos,8958
+2020,11,De Aisén del Gral. C. Ibáñez del Campo,1059
+2020,12,De Magallanes y de La Antártica Chilena,1638
+2020,13,Metropolitana de Santiago,81351
+2020,14,De Los Ríos,3898
+2020,15,De Arica y Parinacota,2886
+2020,16,De Ñuble,4885
+2021,1,De Tarapacá,4396
+2021,2,De Antofagasta,6748
+2021,3,De Atacama,2920
+2021,4,De Coquimbo,7564
+2021,5,De Valparaíso,16822
+2021,6,Del Libertador B. O'Higgins,9258
+2021,7,Del Maule,10689
+2021,8,Del Bíobío,14639
+2021,9,De La Araucanía,9860
+2021,10,De Los Lagos,8370
+2021,11,De Aisén del Gral. C. Ibáñez del Campo,982
+2021,12,De Magallanes y de La Antártica Chilena,1494
+2021,13,Metropolitana de Santiago,73062
+2021,14,De Los Ríos,3435
+2021,15,De Arica y Parinacota,2553
+2021,16,De Ñuble,4481
+2022,1,De Tarapacá,5023
+2022,2,De Antofagasta,7484
+2022,3,De Atacama,3265
+2022,4,De Coquimbo,8019
+2022,5,De Valparaíso,17903
+2022,6,Del Libertador B. O'Higgins,10072
+2022,7,Del Maule,11837
+2022,8,Del Bíobío,16115
+2022,9,De La Araucanía,10405
+2022,10,De Los Lagos,8955
+2022,11,De Aisén del Gral. C. Ibáñez del Campo,1023
+2022,12,De Magallanes y de La Antártica Chilena,1539
+2022,13,Metropolitana de Santiago,76129
+2022,14,De Los Ríos,3780
+2022,15,De Arica y Parinacota,2916
+2022,16,De Ñuble,4838
+2023,1,De Tarapacá,4673
+2023,2,De Antofagasta,6993
+2023,3,De Atacama,3123
+2023,4,De Coquimbo,7486
+2023,5,De Valparaíso,16885
+2023,6,Del Libertador B. O'Higgins,9088
+2023,7,Del Maule,10783
+2023,8,Del Bíobío,14789
+2023,9,De La Araucanía,9629
+2023,10,De Los Lagos,8209
+2023,11,De Aisén del Gral. C. Ibáñez del Campo,986
+2023,12,De Magallanes y de La Antártica Chilena,1440
+2023,13,Metropolitana de Santiago,68866
+2023,14,De Los Ríos,3623
+2023,15,De Arica y Parinacota,2752
+2023,16,De Ñuble,4732

@@ -1,0 +1,87 @@
+# Parámetros del pipeline. Editables desde el panel de administración.
+
+anios:
+  desde: 2001
+  hasta: null          # null = último año disponible
+  deis_ultimo_completo: 2024   # años DEIS posteriores se marcan como provisionales
+
+supresion:
+  n_min: 5             # celdas con menos casos se ocultan al publicar (app y exportaciones)
+
+edad:
+  # Grupos de 5 años para estandarización; el último grupo es abierto (el INE comunal llega a 80+).
+  grupo_abierto: 80
+  # Grupos amplios por defecto, para módulos que no definen "grupos_edad" en modules.yml.
+  # Cada egreso entra al grupo que contiene el límite inferior de su tramo (age_min de los artículos).
+  grupos_app:
+    - {etiqueta: "0-14", min: 0, max: 14}
+    - {etiqueta: "15-29", min: 15, max: 29}
+    - {etiqueta: "30-44", min: 30, max: 44}
+    - {etiqueta: "45-64", min: 45, max: 64}
+    - {etiqueta: "65+", min: 65, max: 150}
+
+tasas:
+  por: 100000                       # tasas poblacionales
+  por_nacidos_vivos: 1000           # fisuras
+  por_universo: 1000                # por 1.000 egresos del universo de referencia (trauma)
+  poblacion_estandar: poblacion_estandar_oms   # OMS 2000-2025; se agrega desde 80 años
+  calibrar_edad0_a_nacidos_vivos: true          # población INE de 0 años × (nacidos vivos región / INE 0 años región)
+  # Fuentes con edad suficiente para estandarizar con quinquenios OMS. El DEIS publica GRUPO_EDAD en tramos
+  # decenales en la mayoría de los años (quinquenales solo en 2012, 2021 y 2024): no se estandariza.
+  ajuste_edad_fuentes: [grd]
+  por_egresos: 100000               # sensibilidad: por 100.000 egresos totales (artículo de infecciones)
+  estandar_chile_anios: [2002, 2025] # "ajustada_chile": distribución etaria chilena agrupada de esos años
+
+clasificacion:
+  # Mecanismo (causa externa) por fuente; columnas de dictionaries/causas_externas.csv.
+  mecanismo:
+    egresos_deis:                   # final_final.R (artículo DEIS 2001-2024): DIAG2, 6 grupos, todos los rangos
+      columna: mecanismo_6grupos
+      solo_etiologicos: false
+      sin_dato: "No especificada/otras"
+    grd:                            # notebook GRD 2019-2025: primer código etiológico en cualquier posición secundaria
+      columna: mecanismo
+      solo_etiologicos: true
+      sin_dato: "Desconocido/otro"
+
+geografia:
+  # Respaldo con la región registrada cuando la comuna no se resuelve, salvo en regiones madre antes de su división.
+  region_respaldo_ambigua:
+    - {regiones: [1, 10], hasta_anio: 2007}
+    - {regiones: [8], hasta_anio: 2018}
+
+estada:
+  max_valida: 365      # días; estadas mayores quedan sin dato solo para la estada (artículo de infecciones)
+
+severidad:
+  # ICDPIC-R 1.0.1 (icd10 = "base", calc_method = 1); tabla i10base_map_roc sin modificar (icdpicr, licencia MIT).
+  # Las claves son los primeros 4 caracteres del código CIE-10, como en el notebook GRD 2019-2025.
+  tabla: icdpic_i10base_map_roc.csv
+  metodo: NIS          # NIS (egresos de todo pagador, análogo a GRD) | TQIP (centros de trauma, sensibilidad)
+  sha256: null
+
+costos:
+  # Parámetros anuales (IPC, productividad): se mantienen los años usados en los artículos. Los años de egresos
+  # posteriores al último parámetro cargado usan el último disponible hasta que se cargue el nuevo (queda en el log).
+  # Valor GRD = peso GRD × precio base del hospital (clúster de la resolución anual). Perspectiva FONASA.
+  estructura_precios_grd: 2024      # estructura de precios constante (principal); 2025 = sensibilidad
+  anio_base_ipc: 2024               # CLP de este año para los escenarios nominales deflactados
+  ipc_desde: 2018-01-01             # inicio del encadenamiento de variaciones mensuales del BCCh
+  codigo_mai_dia_cama: null         # opcional: costeo alternativo por arancel MAI
+  incluir_costos_indirectos: false  # pérdida de productividad durante la estada (capital humano)
+  edad_laboral_min: 15
+  edad_retiro: {Hombre: 65, Mujer: 60}
+
+salida:
+  formato: csv          # csv (csv.gz, liviano y sin dependencias) o parquet (requiere arrow)
+
+publicacion:
+  titulo: "Observatorio CMF Chile: plataforma abierta de epidemiología craneomaxilofacial basada en DEIS y GRD"
+  autores: "Sáenz-Ravello G"
+  # Un solo DOI para citar: el DOI de CONCEPTO de Zenodo, que resuelve siempre a la última versión y suma las
+  # citas de todas. Los DOI por versión existen, pero el observatorio no los muestra.
+  doi: null             # p. ej. 10.5281/zenodo.1234567 (se completa tras el primer release)
+  # Artículo de referencia (el letter). Cuando exista, la cita recomendada es el artículo + el DOI de concepto.
+  articulo_referencia: null   # p. ej. "Sáenz-Ravello G, Fisher EL. Título. Revista. 2027;xx:xx. doi:10.xxxx/xxxx"
+  url_app: "https://observatoriomaxilofacial.cl"
+  repositorio: null     # p. ej. https://github.com/<usuario>/observatoriocmf

@@ -1,0 +1,66 @@
+codigo,descripcion,modulo,grupo,incluir,nota
+02.01,Apertura de sutura craneal,craneosinostosis,,TRUE,CS_SURG_PROCS del notebook de craneosinostosis
+02.03,Formación de colgajo óseo craneal,craneosinostosis,,TRUE,
+02.04,Injerto óseo craneal,craneosinostosis,,TRUE,
+02.05,Inserción de placa craneal,craneosinostosis,,TRUE,
+02.06,Otra osteoplastia craneal,craneosinostosis,,TRUE,
+01.25,Otra craniectomía,craneosinostosis,,TRUE,
+21.71,Reducción cerrada de fractura nasal,trauma,,TRUE,
+21.72,Reducción abierta de fractura nasal,trauma,,TRUE,
+76.70,"Reducción de fractura facial, no especificada",trauma,,TRUE,
+76.71,Reducción cerrada de fractura malar y cigomática,trauma,,TRUE,
+76.72,Reducción abierta de fractura malar y cigomática,trauma,,TRUE,
+76.73,Reducción cerrada de fractura maxilar,trauma,,TRUE,
+76.74,Reducción abierta de fractura maxilar,trauma,,TRUE,
+76.75,Reducción cerrada de fractura mandibular,trauma,,TRUE,
+76.76,Reducción abierta de fractura mandibular,trauma,,TRUE,
+76.77,Reducción abierta de fractura alveolar,trauma,,TRUE,
+76.78,Otra reducción cerrada de fractura facial,trauma,,TRUE,
+76.79,Otra reducción abierta de fractura facial,trauma,,TRUE,
+76.91,Injerto óseo en hueso facial,trauma,,TRUE,
+76.92,Inserción de implante sintético en hueso facial,trauma,,TRUE,
+27.0,Drenaje de cara y suelo de la boca,infecciones,,TRUE,
+24.0,Incisión de encía o hueso alveolar,infecciones,,TRUE,
+28.0,Incisión y drenaje de estructura amigdalina y periamigdalina,infecciones,,TRUE,
+76.31,Mandibulectomía parcial,cancer_oral,,TRUE,Semilla: revisar
+76.39,Ostectomía parcial de otro hueso facial,cancer_oral,,TRUE,Semilla: revisar
+76.41,Mandibulectomía total con reconstrucción simultánea,cancer_oral,,TRUE,Semilla: revisar
+76.42,Otra mandibulectomía total,cancer_oral,,TRUE,Semilla: revisar
+76.43,Otra reconstrucción de mandíbula,cancer_oral,,TRUE,Semilla: revisar
+25.2,Glosectomía parcial,cancer_oral,,TRUE,Semilla: revisar
+25.3,Glosectomía completa,cancer_oral,,TRUE,Semilla: revisar
+40.41,"Disección radical de cuello, unilateral",cancer_oral,,TRUE,Semilla: revisar
+40.42,"Disección radical de cuello, bilateral",cancer_oral,,TRUE,Semilla: revisar
+76.61,Osteoplastia cerrada [osteotomía] de rama mandibular,anomalias_dentofaciales,,TRUE,Semilla: revisar
+76.62,Osteoplastia abierta [osteotomía] de rama mandibular,anomalias_dentofaciales,,TRUE,Semilla: revisar
+76.63,Osteoplastia [osteotomía] del cuerpo mandibular,anomalias_dentofaciales,,TRUE,Semilla: revisar
+76.64,Otra cirugía ortognática de la mandíbula,anomalias_dentofaciales,,TRUE,Semilla: revisar
+76.65,Osteoplastia segmentaria [osteotomía] del maxilar,anomalias_dentofaciales,,TRUE,Semilla: revisar
+76.66,Osteoplastia total [osteotomía] del maxilar,anomalias_dentofaciales,,TRUE,Semilla: revisar
+76.67,Genioplastia de reducción,anomalias_dentofaciales,,TRUE,Semilla: revisar
+76.68,Genioplastia de aumento,anomalias_dentofaciales,,TRUE,Semilla: revisar
+27.54,Reparación de labio fisurado,fisuras,,TRUE,
+27.62,Corrección de paladar fisurado,fisuras,,TRUE,
+27.63,Revisión de reparación de paladar fisurado,fisuras,,TRUE,
+76.5,Artroplastia temporomandibular,atm,,TRUE,Semilla: revisar
+76.93,Reducción cerrada de luxación temporomandibular,atm,,TRUE,Semilla: revisar
+76.94,Reducción abierta de luxación temporomandibular,atm,,TRUE,Semilla: revisar
+23.0,Extracción dental con fórceps,patologia_maxilar,Exodoncia,TRUE,Descriptivo: no define caso
+23.1,Extracción quirúrgica de diente,patologia_maxilar,Exodoncia,TRUE,Descriptivo: no define caso
+24.6,Exposición de diente,patologia_maxilar,Exposición y tracción dentaria,TRUE,Descriptivo: no define caso
+23.73,Apicectomía,patologia_maxilar,Apicectomía,TRUE,Descriptivo: no define caso
+24.4,Escisión de lesión dental de maxilar,patologia_maxilar,Enucleación o escisión de lesión,TRUE,Descriptivo: no define caso
+76.2,Escisión local o destrucción de lesión de hueso facial,patologia_maxilar,Enucleación o escisión de lesión,TRUE,Descriptivo: no define caso
+24.12,Biopsia de alvéolo,patologia_maxilar,Biopsia,TRUE,Descriptivo: no define caso
+76.11,Biopsia de hueso facial,patologia_maxilar,Biopsia,TRUE,Descriptivo: no define caso
+76.31,Mandibulectomía parcial,patologia_maxilar,Resección ósea,TRUE,Descriptivo: no define caso
+76.39,Ostectomía parcial de otro hueso facial,patologia_maxilar,Resección ósea,TRUE,Descriptivo: no define caso
+76.41,Mandibulectomía total con reconstrucción simultánea,patologia_maxilar,Resección ósea,TRUE,Descriptivo: no define caso
+76.42,Otra mandibulectomía total,patologia_maxilar,Resección ósea,TRUE,Descriptivo: no define caso
+76.44,Ostectomía total de otro hueso facial con reconstrucción simultánea,patologia_maxilar,Resección ósea,TRUE,Descriptivo: no define caso
+76.45,Otra ostectomía total de otro hueso facial,patologia_maxilar,Resección ósea,TRUE,Descriptivo: no define caso
+76.43,Otra reconstrucción de mandíbula,patologia_maxilar,Reconstrucción,TRUE,Descriptivo: no define caso
+76.46,Otra reconstrucción de otro hueso facial,patologia_maxilar,Reconstrucción,TRUE,Descriptivo: no define caso
+76.91,Injerto óseo en hueso facial,patologia_maxilar,Reconstrucción,TRUE,Descriptivo: no define caso
+76.92,Inserción de implante sintético en hueso facial,patologia_maxilar,Reconstrucción,TRUE,Descriptivo: no define caso
+76.6,Otra osteoplastia facial (osteotomías),patologia_maxilar,Osteotomía u osteoplastía facial,TRUE,Descriptivo: no define caso

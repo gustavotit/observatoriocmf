@@ -1,0 +1,25 @@
+# Descargas y caché del pipeline (se regeneran)
+data-raw/
+data-cache/
+
+# Carpetas generadas al preparar el despliegue
+inst/app/R/
+inst/app/data/
+rsconnect/
+
+# Credenciales: nunca al repositorio
+.Renviron
+admin/.Renviron
+.env
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# Local (agregado por carpeta_github)
+config_local.json
+data-casos_respaldo*/
+log_*.txt
+*.bak
