@@ -112,6 +112,7 @@ jobs:
           APP_NAME: ${{ vars.APP_NAME || 'observatoriocmf' }}
         run: |
           Rscript -e '
+            Sys.unsetenv("RENV_CONFIG_REPOS_OVERRIDE")
             options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest",
                               RSPM = "https://packagemanager.posit.co/cran/latest"))
             rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
@@ -141,6 +142,7 @@ jobs:
             echo "ADMIN_PASSWORD=${ADMIN_PASSWORD}"
           } > admin/.Renviron
           Rscript -e '
+            Sys.unsetenv("RENV_CONFIG_REPOS_OVERRIDE")
             options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest",
                               RSPM = "https://packagemanager.posit.co/cran/latest"))
             rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
