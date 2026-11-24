@@ -157,8 +157,10 @@ jobs:
             rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
                                       token = Sys.getenv("SHINYAPPS_TOKEN"),
                                       secret = Sys.getenv("SHINYAPPS_SECRET"))
+            archivos <- c(list.files("admin", recursive = TRUE), ".Renviron")
+            cat("Archivos del panel:", archivos, sep = "\n  ")
             rsconnect::deployApp("admin", appName = Sys.getenv("ADMIN_APP_NAME"),
-                                 appFiles = c("app.R", "R/github.R", "R/helpers.R", ".Renviron"),
+                                 appFiles = archivos,
                                  forceUpdate = TRUE, launch.browser = FALSE)'
           rm -f admin/.Renviron
 
