@@ -103,6 +103,7 @@ jobs:
         run: |
           Rscript -e 'install.packages(c("remotes", "cpp11"))'
           Rscript -e 'remotes::install_github("${{ github.repository }}", upgrade = "never")'
+          echo 'options(repos = c(CRAN = "https://cloud.r-project.org", RSPM = "https://packagemanager.posit.co/cran/latest"))' >> ~/.Rprofile
           
       - name: Desplegar app pública
         env:
