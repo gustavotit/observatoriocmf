@@ -98,6 +98,8 @@ jobs:
         run: Rscript pipeline/prepare_app.R
 
       - name: Instalar observatoriocmf desde GitHub y cpp11
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           Rscript -e 'install.packages(c("remotes", "cpp11"))'
           Rscript -e 'remotes::install_github("${{ github.repository }}", upgrade = "never")'
