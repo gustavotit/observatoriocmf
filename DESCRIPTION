@@ -1,7 +1,7 @@
 Package: observatoriocmf
 Type: Package
 Title: Observatorio CMF Chile: Epidemiología Craneomaxilofacial con Datos DEIS y GRD
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: person("Gustavo", "Sáenz-Ravello", email = "gustasaenzravello@gmail.com",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0000-0000-0000"))
 Description: Datos agregados, tasas crudas y ajustadas por edad, indicadores clínicos y de costos
