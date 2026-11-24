@@ -103,8 +103,7 @@ jobs:
         run: |
           Rscript -e 'install.packages(c("remotes", "cpp11"))'
           Rscript -e 'remotes::install_github("${{ github.repository }}", upgrade = "never")'
-          echo 'options(repos = c(CRAN = "https://cloud.r-project.org", RSPM = "https://packagemanager.posit.co/cran/latest"))' >> ~/.Rprofile
-          
+
       - name: Desplegar app pública
         env:
           SHINYAPPS_NAME: ${{ secrets.SHINYAPPS_NAME }}
@@ -113,6 +112,8 @@ jobs:
           APP_NAME: ${{ vars.APP_NAME || 'observatoriocmf' }}
         run: |
           Rscript -e '
+            options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest",
+                              RSPM = "https://packagemanager.posit.co/cran/latest"))
             rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
                                       token = Sys.getenv("SHINYAPPS_TOKEN"),
                                       secret = Sys.getenv("SHINYAPPS_SECRET"))
@@ -140,6 +141,8 @@ jobs:
             echo "ADMIN_PASSWORD=${ADMIN_PASSWORD}"
           } > admin/.Renviron
           Rscript -e '
+            options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest",
+                              RSPM = "https://packagemanager.posit.co/cran/latest"))
             rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
                                       token = Sys.getenv("SHINYAPPS_TOKEN"),
                                       secret = Sys.getenv("SHINYAPPS_SECRET"))
