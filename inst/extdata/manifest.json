@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
-  "construido": "2026-11-24 19:21:53 UTC",
-  "commit": "15c3abc40f865c7dce8c361c498f1adefdeea736",
+  "construido": "2026-11-24 19:31:12 UTC",
+  "commit": "a54d401c083277048c29c3084e70944d76e1dc87",
   "formato": "csv",
   "tablas": {
     "cubo": 208550,
