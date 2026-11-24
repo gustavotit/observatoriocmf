@@ -97,6 +97,11 @@ jobs:
       - name: Preparar la app
         run: Rscript pipeline/prepare_app.R
 
+      - name: Instalar observatoriocmf desde GitHub y cpp11
+        run: |
+          Rscript -e 'install.packages(c("remotes", "cpp11"))'
+          Rscript -e 'remotes::install_github("${{ github.repository }}", upgrade = "never")'
+          
       - name: Desplegar app pública
         env:
           SHINYAPPS_NAME: ${{ secrets.SHINYAPPS_NAME }}
