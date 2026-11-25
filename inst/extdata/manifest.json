@@ -1,7 +1,7 @@
 {
-  "version": "0.1.0",
-  "construido": "2026-11-24 19:44:52 UTC",
-  "commit": "a3470c716c1062dd58e1850e7147c2645c0c37bd",
+  "version": "1.0.0",
+  "construido": "2026-11-25 14:01:46 UTC",
+  "commit": "447b7dd330b533a3b6469d4df1fc6697478b5781",
   "formato": "csv",
   "tablas": {
     "cubo": 208550,
@@ -113,7 +113,7 @@
     },
     "costos": {
       "estructura_precios_grd": 2024,
-      "anio_base_ipc": 2024,
+      "referencia_precios": "2025-10",
       "ipc_desde": "2018-01-01",
       "codigo_mai_dia_cama": null,
       "incluir_costos_indirectos": false,
