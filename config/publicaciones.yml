@@ -53,3 +53,13 @@ articulos:
   #   doi: null
   #   estado: publicado
   #   datos: "RNPI (Transparencia) y Visor Ciudadano LE, 2026"
+
+  - tipo: "observatorio"
+    modulo: "trauma"
+    autores: "Sáenz-Ravello G, Sáenz-Ravello L, Fisher EL"
+    anio: 2026
+    titulo: "Economic Burden of Facial Trauma in Chile’s Public Hospitals: Hospital Resource Use and Productivity Loss, 2019–2025"
+    revista: "Craniomaxillofac. Trauma Reconstr."
+    referencia: "19(4):47"
+    doi: "10.3390/cmtr19040047"
+    estado: "publicado"
