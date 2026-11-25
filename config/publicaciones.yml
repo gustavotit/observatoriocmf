@@ -63,3 +63,17 @@ articulos:
     referencia: "19(4):47"
     doi: "10.3390/cmtr19040047"
     estado: "publicado"
+
+  - tipo: "serie_hospitalaria"
+    modulo: "trauma"
+    autores: "Cortez C, Ulloa C, Moris H, Valladares S"
+    anio: 2026
+    titulo: "Epidemiology of Maxillofacial Fractures over a 5-Year Period in a Chilean Population: A Study Based on the AO CMF Level 2 Classification System"
+    revista: "Craniomaxillofac. Trauma Reconstr."
+    referencia: "19(4):44"
+    doi: "10.3390/cmtr19040044"
+    estado: "publicado"
+    region: "Metropolitana"
+    periodo: "2020-2024"
+    casos: 479
+    diseno: "retrospectivo; auditoria de fichas"
