@@ -597,7 +597,7 @@ server <- function(input, output, session) {
     nav_select("nav", "explorar")
   })
   # Pregunta al observatorio: cmf_preguntar() interpreta la pregunta y consulta el cubo publicado.
-  # Se guardan las últimas cinco respuestas de la sesión (la más reciente arriba).
+  # Solo se muestra la última respuesta: cada pregunta nueva reemplaza a la anterior.
   historial <- reactiveVal(list())
   n_preguntas <- 0L
   observeEvent(input$preg_enviar, {
@@ -613,7 +613,7 @@ server <- function(input, output, session) {
       g <- r$grafico
       output[[paste0(id, "_g")]] <- renderPlot(g, res = 110)
     })
-    historial(utils::head(c(list(list(id = id, pregunta = txt, r = r)), historial()), 5))
+    historial(list(list(id = id, pregunta = txt, r = r)))
     session$sendCustomMessage("preg_limpiar", list())
   })
   output$respuestas <- renderUI({
