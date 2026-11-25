@@ -168,6 +168,16 @@ hospitalarias y estudios nacionales o regionales, con filtros y descarga RIS/CSV
 `config/publicaciones.yml`; desde el panel (pestaña Biblioteca) se agregan referencias con autocompletado por DOI y se
 quitan, y basta "Solo redesplegar". En R: `cmf_biblioteca()`.
 
+## Pregunta al observatorio
+
+Bajo la presentación de la portada hay un buscador que responde preguntas en español ("¿cuántos egresos por fracturas
+faciales hubo en Biobío en 2023?", "¿qué región tiene la tasa de fisuras más alta?"). No usa un modelo de lenguaje: un
+intérprete determinista (`R/preguntas.R`) reconoce el módulo, el subgrupo, la fuente, el territorio, los años, el sexo,
+la edad, la medida y la desagregación; llama a `cmf_query()` o `cmf_query_eco()` y redacta la respuesta con
+plantillas, con la cita de la consulta. Las cifras son las del explorador, con la misma supresión de celdas pequeñas;
+si la pregunta no calza con los datos, lo dice y sugiere otras. Mientras se escribe, el buscador autocompleta con
+`cmf_preguntas_sugeridas()` (filtrado en el navegador). En R: `cmf_preguntar("...")`.
+
 ## Dimensión económica y estudios
 
 Cada módulo con GRD tiene dos dimensiones en el explorador: **Epidemiología** (tasas, territorio, composición) y

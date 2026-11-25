@@ -197,6 +197,38 @@ table.dataTable tbody tr:hover { background:var(--papel) !important; }
 .pagina h2:first-child { margin-top:0; }
 .pagina ol li, .pagina p { max-width:78ch; line-height:1.6; }
 .pie { border-top:1px solid var(--regla); margin-top:56px; padding:16px 0; font-size:.82rem; color:var(--gris); font-family:var(--sans); }
+/* Pregunta al observatorio: intérprete determinista, sin modelo de lenguaje */
+.pregunta { margin-top:52px; border-top:3px solid var(--regla); padding-top:14px; }
+.pregunta h2 { font-size:1.6rem; margin:4px 0 0; border:0; padding:0; }
+.pregunta .caja { display:flex; margin-top:18px; position:relative; }
+.sugerencias { position:absolute; left:0; right:0; top:100%; z-index:20; background:#fff; border:1.5px solid var(--tinta); border-top:0;
+               box-shadow:0 10px 24px rgba(20,20,20,.08); max-height:340px; overflow-y:auto; }
+.sugerencias .op { padding:10px 16px; font-family:var(--sans); font-size:.95rem; cursor:pointer; border-top:1px solid var(--tenue); color:#3a3a3a; }
+.sugerencias .op b { color:var(--tinta); font-weight:700; }
+.sugerencias .op:hover, .sugerencias .op.activa { background:var(--papel); box-shadow:inset 3px 0 0 var(--firma); }
+.pregunta .caja input { flex:1; border:1.5px solid var(--tinta); border-right:0; padding:14px 16px; font-family:var(--sans); font-size:1.05rem;
+                        outline:none; background:#fff; }
+.pregunta .caja input:focus { box-shadow:inset 0 -3px 0 var(--firma); }
+.pregunta .caja .btn { border:1.5px solid var(--tinta); padding:0 26px; font-size:.9rem; }
+.pregunta .ejemplos { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.pregunta .ejemplos a { border:1px solid #C9C5BD; color:var(--tinta); padding:6px 11px; font-family:var(--sans); font-size:.8rem;
+                        text-decoration:none; transition:border-color .15s, background .15s; }
+.pregunta .ejemplos a:hover { border-color:var(--tinta); background:var(--papel); }
+.respuesta { border-top:1px solid var(--regla); margin-top:26px; padding-top:16px; display:grid;
+             grid-template-columns:minmax(0, 7fr) minmax(0, 5fr); gap:36px; }
+@media (max-width: 900px) { .respuesta { grid-template-columns:1fr; gap:16px; } }
+.respuesta .q { font-family:var(--sans); font-weight:700; font-size:1.15rem; letter-spacing:-.01em; margin:0 0 10px; }
+.respuesta .entendido { display:flex; flex-wrap:wrap; gap:4px 14px; margin-bottom:12px; }
+.respuesta .entendido span { font-family:var(--sans); font-size:.76rem; color:var(--gris); }
+.respuesta .entendido b { color:var(--tinta); font-weight:600; }
+.respuesta p { font-size:1.02rem; line-height:1.6; margin:0 0 8px; max-width:68ch; }
+.respuesta .no-ok p:first-child { border-left:3px solid var(--firma); padding-left:12px; }
+.respuesta .bloque-cita { font-size:.84rem; margin-top:14px; border-left-color:var(--firma); }
+.respuesta .ir { font-family:var(--sans); font-size:.84rem; font-weight:700; color:var(--tinta); text-decoration:none;
+                 border-bottom:1.5px solid var(--firma); display:inline-block; margin-top:12px; }
+.respuesta .tabla-simple { font-size:.84rem; }
+.respuesta .tabla-simple td, .respuesta .tabla-simple th { padding-right:14px; }
+.respuesta .mas { font-family:var(--sans); font-size:.78rem; color:var(--gris); margin-top:6px; }
 "
 
 codes_for <- function(id) {
@@ -240,6 +272,66 @@ tinte <- function(col, alfa = 0.10) {
 color_mod <- function(id) { c <- modulos$color[modulos$id == id]; if (length(c) && nzchar(c)) c else "#80796B" }
 
 n_total <- if (hay_datos) sum(cubo0$n, na.rm = TRUE) else NA
+# Buscador con autocompletado (sin dependencias): cada palabra escrita debe ser el comienzo de una palabra de la
+# sugerencia, sin importar tildes ni mayúsculas. Flechas para moverse, Enter para preguntar, Esc para cerrar.
+js_autocompletar <- "
+(function () {
+  var datos = document.getElementById('preg_sug'), inp = document.getElementById('preg_texto'), caja = document.getElementById('preg_lista');
+  if (!datos || !inp || !caja) return;
+  var SUG = JSON.parse(datos.textContent);
+  var norm = function (s) { return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9+]+/g, ' ').trim(); };
+  var PAL = SUG.map(function (s) { return norm(s).split(' '); });
+  var esc = function (s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+  var act = -1, cur = [], toks = [];
+  function enviar(txt) { cerrar(); inp.value = txt; Shiny.setInputValue('preg_enviar', txt, {priority: 'event'}); }
+  function cerrar() { caja.hidden = true; caja.innerHTML = ''; cur = []; act = -1; inp.setAttribute('aria-expanded', 'false'); }
+  function marcar(s) {
+    return s.split(' ').map(function (w) {
+      var n = norm(w);
+      return toks.some(function (t) { return n.indexOf(t) === 0; }) ? '<b>' + esc(w) + '</b>' : esc(w);
+    }).join(' ');
+  }
+  function pintar() {
+    caja.innerHTML = '';
+    if (!cur.length) { cerrar(); return; }
+    cur.forEach(function (i, k) {
+      var d = document.createElement('div');
+      d.className = 'op' + (k === act ? ' activa' : ''); d.setAttribute('role', 'option');
+      d.innerHTML = marcar(SUG[i]);
+      d.addEventListener('mousedown', function (e) { e.preventDefault(); enviar(SUG[i]); });
+      caja.appendChild(d);
+    });
+    caja.hidden = false; inp.setAttribute('aria-expanded', 'true');
+  }
+  function buscar() {
+    toks = norm(inp.value).split(' ').filter(function (t) { return t.length > 0; });
+    act = -1;
+    if (!toks.length || inp.value.trim().length < 2) { cerrar(); return; }
+    var res = [];
+    for (var i = 0; i < SUG.length; i++) {
+      var w = PAL[i], ok = true, pos = 0;
+      for (var j = 0; j < toks.length && ok; j++) {
+        var k = w.findIndex(function (x) { return x.indexOf(toks[j]) === 0; });
+        if (k < 0) ok = false; else pos += k;
+      }
+      if (ok) res.push([i, pos + w.length / 4]);
+    }
+    res.sort(function (a, b) { return a[1] - b[1]; });
+    cur = res.slice(0, 7).map(function (r) { return r[0]; });
+    pintar();
+  }
+  inp.addEventListener('input', buscar);
+  inp.addEventListener('focus', buscar);
+  inp.addEventListener('blur', function () { setTimeout(cerrar, 120); });
+  inp.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown' && cur.length) { e.preventDefault(); act = (act + 1) % cur.length; pintar(); }
+    else if (e.key === 'ArrowUp' && cur.length) { e.preventDefault(); act = (act - 1 + cur.length) % cur.length; pintar(); }
+    else if (e.key === 'Tab' && act >= 0) { e.preventDefault(); inp.value = SUG[cur[act]]; cerrar(); }
+    else if (e.key === 'Escape') { cerrar(); }
+    else if (e.key === 'Enter') { e.preventDefault(); enviar(act >= 0 ? SUG[cur[act]] : inp.value); }
+  });
+})();
+"
 home_ui <- div(class = "pagina",
   div(class = "portada",
     div(class = "texto",
@@ -256,6 +348,25 @@ home_ui <- div(class = "pagina",
       tags$figcaption(
         "Músculos del lado derecho de la cabeza y el cuello. Mezzotinta en color de J. F. Gautier d'Agoty, según su propio dibujo, 1745-1746. Wellcome Collection, 33339i."))
   ),
+  if (hay_datos) div(class = "pregunta",
+    h2("Pregunta al observatorio"),
+    div(class = "caja",
+      # Sin <form> y sin atributo type: Shiny no lo enlaza como input propio; la pregunta viaja en preg_enviar.
+      tags$input(id = "preg_texto", maxlength = "300", autocomplete = "off", enterkeyhint = "send",
+                 placeholder = "Por ejemplo: ¿cuántos egresos por fracturas faciales hubo en Biobío en 2023?",
+                 `aria-label` = "Pregunta al observatorio", role = "combobox", `aria-autocomplete` = "list",
+                 `aria-controls` = "preg_lista", `aria-expanded` = "false"),
+      div(id = "preg_lista", class = "sugerencias", role = "listbox", hidden = NA),
+      tags$button(type = "button", class = "btn btn-primary",
+                  onclick = "Shiny.setInputValue('preg_enviar', document.getElementById('preg_texto').value, {priority: 'event'});", "Preguntar")),
+    div(class = "ejemplos",
+      lapply(cmf_preguntas_ejemplo(), function(x) tags$a(href = "#", x,
+        onclick = sprintf("document.getElementById('preg_texto').value = %s; Shiny.setInputValue('preg_enviar', %s, {priority: 'event'}); return false;",
+                          jsonlite::toJSON(x, auto_unbox = TRUE), jsonlite::toJSON(x, auto_unbox = TRUE))))),
+    uiOutput("respuestas"),
+    # Autocompletado: preguntas que el intérprete sabe responder, filtradas en el navegador mientras se escribe.
+    tags$script(id = "preg_sug", type = "application/json", HTML(jsonlite::toJSON(cmf_preguntas_sugeridas()))),
+    tags$script(HTML(js_autocompletar))),
   div(class = "indice",
     div(class = "rotulo mb-2", "Índice"),
     lapply(seq_len(nrow(modulos)), function(i) {
@@ -432,7 +543,8 @@ ui <- page_navbar(
   header = tags$head(tags$style(HTML(css)), tags$script(HTML(
     "Shiny.addCustomMessageHandler('color_mod', function(x) {
        var r = document.documentElement.style; r.setProperty('--mod', x.color); r.setProperty('--mod-tinte', x.tinte); });
-     Shiny.addCustomMessageHandler('set_dimension', function(x) { Shiny.setInputValue('dimension', x); });"))),
+     Shiny.addCustomMessageHandler('set_dimension', function(x) { Shiny.setInputValue('dimension', x); });
+     Shiny.addCustomMessageHandler('preg_limpiar', function(x) { var e = document.getElementById('preg_texto'); if (e) e.value = ''; });"))),
   nav_panel("Inicio", value = "inicio", home_ui),
   nav_panel("Explorar", value = "explorar", if (hay_datos) explorer_ui else
     div(class = "pagina", h2("Aún no hay datos procesados"),
@@ -484,6 +596,57 @@ server <- function(input, output, session) {
     updateSelectInput(session, "modulo", selected = x$modulo)
     nav_select("nav", "explorar")
   })
+  # Pregunta al observatorio: cmf_preguntar() interpreta la pregunta y consulta el cubo publicado.
+  # Se guardan las últimas cinco respuestas de la sesión (la más reciente arriba).
+  historial <- reactiveVal(list())
+  n_preguntas <- 0L
+  observeEvent(input$preg_enviar, {
+    txt <- trimws(substr(input$preg_enviar %||% "", 1, 300))
+    if (!nzchar(txt)) return()
+    n_preguntas <<- n_preguntas + 1L
+    r <- if (n_preguntas > 60) {
+      list(ok = FALSE, parrafos = "Se alcanzó el máximo de preguntas de esta sesión. Recarga la página para seguir.")
+    } else tryCatch(cmf_preguntar(txt), error = function(e) list(ok = FALSE, parrafos = c(
+      "No pude responder esa pregunta con los datos publicados.", "Prueba con otra forma de plantearla o usa el explorador.")))
+    id <- paste0("preg_", n_preguntas)
+    if (!is.null(r$grafico)) local({
+      g <- r$grafico
+      output[[paste0(id, "_g")]] <- renderPlot(g, res = 110)
+    })
+    historial(utils::head(c(list(list(id = id, pregunta = txt, r = r)), historial()), 5))
+    session$sendCustomMessage("preg_limpiar", list())
+  })
+  output$respuestas <- renderUI({
+    h <- historial()
+    if (!length(h)) return(NULL)
+    lapply(h, function(x) {
+      r <- x$r
+      tabla <- if (!is.null(r$tabla) && nrow(r$tabla)) {
+        t <- r$tabla; extra <- nrow(t) - 12
+        tagList(
+          tags$table(class = "tabla-simple",
+            tags$thead(tags$tr(lapply(names(t), tags$th))),
+            tags$tbody(lapply(seq_len(min(12, nrow(t))), function(i) tags$tr(lapply(t[i, ], function(v) tags$td(as.character(v))))))),
+          if (extra > 0) div(class = "mas", paste0("Y ", extra, if (extra == 1) " fila más" else " filas más", " en el explorador.")))
+      }
+      ir <- if (!is.null(r$modulo) && (r$modulo %in% mod_ev_datos$id || identical(r$modulo, "oferta"))) {
+        tags$a(class = "ir", href = "#", onclick = sprintf("Shiny.setInputValue('ir', {modulo: '%s', dim: 'general'}, {priority: 'event'}); return false;", r$modulo),
+               "Abrir en el explorador →")
+      }
+      div(class = "respuesta",
+        div(class = if (isTRUE(r$ok)) "ok" else "no-ok",
+          div(class = "q", x$pregunta),
+          if (length(r$entendido)) div(class = "entendido", lapply(names(r$entendido), function(k) tags$span(paste0(k, ": "), tags$b(r$entendido[[k]])))),
+          lapply(r$parrafos, tags$p),
+          if (length(r$sugerencias)) div(class = "ejemplos", lapply(r$sugerencias, function(s) tags$a(href = "#", s,
+            onclick = sprintf("document.getElementById('preg_texto').value = %s; Shiny.setInputValue('preg_enviar', %s, {priority: 'event'}); return false;",
+                              jsonlite::toJSON(s, auto_unbox = TRUE), jsonlite::toJSON(s, auto_unbox = TRUE))))),
+          if (!is.null(r$cita)) div(class = "bloque-cita", r$cita),
+          ir),
+        div(if (!is.null(r$grafico)) plotOutput(paste0(x$id, "_g"), height = "300px"), tabla))
+    })
+  })
+
   # Dimensión del explorador: Epidemiología (por defecto) o Economía (solo módulos con GRD).
   es_eco <- reactive(identical(input$dimension, "eco") && isTRUE(eco_ok[input$modulo %||% ""]))
   observe({
