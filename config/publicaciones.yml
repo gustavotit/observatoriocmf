@@ -63,6 +63,7 @@ articulos:
     referencia: "19(4):47"
     doi: "10.3390/cmtr19040047"
     estado: "publicado"
+    datos: "GRD 2019-2025"
 
   - tipo: "serie_hospitalaria"
     modulo: "trauma"
