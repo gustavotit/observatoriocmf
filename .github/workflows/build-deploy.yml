@@ -97,13 +97,22 @@ jobs:
       - name: Preparar la app
         run: Rscript pipeline/prepare_app.R
 
-      - name: Instalar observatoriocmf desde GitHub y cpp11
+      - name: Instalar observatoriocmf desde GitHub, cpp11 y packrat
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          Rscript -e 'install.packages(c("remotes", "cpp11"))'
+          Rscript -e 'install.packages(c("remotes", "cpp11", "packrat"))'
           Rscript -e 'remotes::install_github("${{ github.repository }}", upgrade = "never")'
-          
+
+      - name: Marcar como CRAN los paquetes instalados desde RSPM
+        run: |
+          for lib in $(Rscript -e 'cat(.libPaths(), sep = "\n")'); do
+            for f in $(grep -l '^Repository: RSPM' "$lib"/*/DESCRIPTION 2>/dev/null); do
+              echo "Corrigiendo $f"
+              sudo sed -i 's/^Repository: RSPM\s*$/Repository: CRAN/' "$f"
+            done
+          done
+
       - name: Desplegar app pública
         env:
           SHINYAPPS_NAME: ${{ secrets.SHINYAPPS_NAME }}
@@ -112,6 +121,9 @@ jobs:
           APP_NAME: ${{ vars.APP_NAME || 'observatoriocmf' }}
         run: |
           Rscript -e '
+            Sys.unsetenv("RENV_CONFIG_REPOS_OVERRIDE")
+            options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest"),
+                    rsconnect.packrat = TRUE)
             rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
                                       token = Sys.getenv("SHINYAPPS_TOKEN"),
                                       secret = Sys.getenv("SHINYAPPS_SECRET"))
@@ -139,11 +151,16 @@ jobs:
             echo "ADMIN_PASSWORD=${ADMIN_PASSWORD}"
           } > admin/.Renviron
           Rscript -e '
+            Sys.unsetenv("RENV_CONFIG_REPOS_OVERRIDE")
+            options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest"),
+                    rsconnect.packrat = TRUE)
             rsconnect::setAccountInfo(name = Sys.getenv("SHINYAPPS_NAME"),
                                       token = Sys.getenv("SHINYAPPS_TOKEN"),
                                       secret = Sys.getenv("SHINYAPPS_SECRET"))
+            archivos <- c(list.files("admin", recursive = TRUE), ".Renviron")
+            cat("Archivos del panel:", archivos, sep = "\n  ")
             rsconnect::deployApp("admin", appName = Sys.getenv("ADMIN_APP_NAME"),
-                                 appFiles = c("app.R", "R/github.R", "R/helpers.R", ".Renviron"),
+                                 appFiles = archivos,
                                  forceUpdate = TRUE, launch.browser = FALSE)'
           rm -f admin/.Renviron
 
