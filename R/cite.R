@@ -106,8 +106,11 @@ cmf_methods <- function(q) {
   } else ""
   valor <- if (f$fuente == "grd") {
     est <- cmf_manifest()$parametros$costos$estructura_precios_grd %||% 2024
+    ref <- referencia_precios()
     paste0(" El valor GRD corresponde al peso GRD por el precio base del hospital según su clúster de precios, con la estructura de precios ", est,
-           " (perspectiva del financiador público); no es un costo hospitalario observado.")
+           " y desde la perspectiva del financiador público",
+           if (!is.null(ref)) paste0(", expresado en ", moneda_lbl(TRUE), " con el IPC del Banco Central (índice del mes sobre el índice promedio de ", est, ")") else "",
+           ". No es un costo hospitalario observado.")
   } else ""
   eco <- if (!is.null(meta$indicador) && meta$indicador %in% ECO_INDICADORES) {
     switch(meta$indicador,

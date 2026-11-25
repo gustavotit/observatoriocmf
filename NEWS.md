@@ -1,5 +1,13 @@
 # observatoriocmf (desarrollo)
 
+## Valor GRD en pesos de octubre de 2025
+
+- El valor GRD de todos los módulos se expresa en pesos de octubre de 2025 (estructura de precios 2024 × factor IPC
+  1,0502), la misma moneda del estudio de carga económica del trauma facial. Nuevo parámetro
+  `costos$referencia_precios` (año-mes), editable desde el panel; reemplaza a `anio_base_ipc`.
+- Los conteos, las tasas y los controles contra las publicaciones no cambian (25 de 25 coinciden).
+- Pregunta al observatorio: buscador con autocompletado en la portada (`cmf_preguntar()`).
+
 ## Consolidación: epidemiología y economía por ámbito
 
 - Índice de la portada: cada ámbito tiene rectángulos de su color, sin relleno, que abren el explorador directo en

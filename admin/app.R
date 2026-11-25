@@ -84,7 +84,7 @@ ui_inner <- page_navbar(
         numericInput("p_hasta", "Año hasta (vacío = último disponible)", value = NA),
         numericInput("p_nmin", "Supresión: mínimo de casos por celda", value = 5, min = 1),
         numericInput("p_abierto", "Grupo de edad abierto (años)", value = 80),
-        numericInput("p_ipc", "Año base IPC (CLP de ese año)", value = NA),
+        textInput("p_ref", "Pesos de referencia (año-mes, p. ej. 2025-10)"),
         numericInput("p_estructura", "Estructura de precios GRD (año de la resolución)", value = 2024),
         textInput("p_diacama", "Código MAI del día cama (opcional)"),
         checkboxInput("p_indirectos", "Incluir costos indirectos (capital humano)")
@@ -405,7 +405,7 @@ server <- function(input, output, session) {
     updateNumericInput(session, "p_hasta", value = p$anios$hasta %||% NA)
     updateNumericInput(session, "p_nmin", value = p$supresion$n_min %||% 5)
     updateNumericInput(session, "p_abierto", value = p$edad$grupo_abierto %||% 80)
-    updateNumericInput(session, "p_ipc", value = p$costos$anio_base_ipc %||% NA)
+    updateTextInput(session, "p_ref", value = p$costos$referencia_precios %||% "")
     updateNumericInput(session, "p_estructura", value = p$costos$estructura_precios_grd %||% 2024)
     updateTextInput(session, "p_diacama", value = p$costos$codigo_mai_dia_cama %||% "")
     updateCheckboxInput(session, "p_indirectos", value = isTRUE(p$costos$incluir_costos_indirectos))
@@ -424,7 +424,7 @@ server <- function(input, output, session) {
     p$anios["hasta"] <- list(na_null(input$p_hasta))
     p$supresion$n_min <- input$p_nmin
     p$edad$grupo_abierto <- input$p_abierto
-    p$costos$anio_base_ipc <- na_null(input$p_ipc)
+    p$costos["referencia_precios"] <- list(na_null(trimws(input$p_ref)))
     p$costos$estructura_precios_grd <- na_null(input$p_estructura)
     p$costos["codigo_mai_dia_cama"] <- list(na_null(input$p_diacama))
     p$costos$incluir_costos_indirectos <- isTRUE(input$p_indirectos)

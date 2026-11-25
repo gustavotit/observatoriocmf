@@ -562,8 +562,9 @@ ui <- page_navbar(
         tags$li("Trauma GRD: RISS derivado de CIE-10 (ICDPIC-R 1.0.1, método NIS); trauma mayor, RISS ≥ 16."),
         tags$li("Fisuras, por 1.000 nacidos vivos; craneosinostosis, por 10.000 nacidos vivos."),
         tags$li(paste0("Economía: valor GRD = peso GRD × precio base del clúster del hospital, con la estructura de precios ",
-                       cmf_manifest()$parametros$costos$estructura_precios_grd %||% 2024,
-                       " constante (perspectiva del financiador público; no es costo observado). Días cama = suma de la estada. Solo GRD.")),
+                       estructura_precios(), " constante",
+                       if (!is.null(referencia_precios())) paste0(", expresado en ", moneda_lbl(TRUE), " con el IPC del Banco Central") else "",
+                       " (perspectiva del financiador público; no es costo observado). Días cama = suma de la estada. Solo GRD.")),
         tags$li("Estudios económicos: resultados agregados de los notebooks de cada artículo (estimandos, escenarios y carga por Servicio de Salud), importados sin registros individuales y con su propia moneda y métodos."),
         tags$li("Se suprimen las celdas con menos casos que el umbral configurado.")),
       h2("Datos faltantes"),
@@ -680,7 +681,7 @@ server <- function(input, output, session) {
       class = paste(c(if ((dim == "eco") == eco) "activa", if (!ok) "deshabilitada"), collapse = " "), href = "#",
       onclick = sprintf("Shiny.setInputValue('dimension', '%s'); return false;", dim), DIM_LBL[[dim]])
     div(class = "encabezado-modulo",
-      div(div(class = "rotulo", if (eco) paste0("GRD, hospitales públicos. Valor GRD a precios ", estructura_precios())
+      div(div(class = "rotulo", if (eco) paste0("GRD, hospitales públicos. Valor GRD en ", moneda_lbl())
                                else FUENTES_LBL[input$fuente] %||% ""),
           h2(m$nombre)),
       div(class = "dimensiones", sw("epi"), sw("eco", isTRUE(eco_ok[m$id]))))
@@ -827,9 +828,9 @@ server <- function(input, output, session) {
     pct_cma <- if (!is.null(act) && "CMA" %in% act$actividad) 100 * sum(act[actividad == "CMA"]$valor_grd, na.rm = TRUE) / sum(act$valor_grd, na.rm = TRUE)
     boxes <- list(
       k("Valor GRD total", paste0("$", fmt_num(q$valor_grd / 1e6), " M"),
-        paste0("millones de CLP, ", paste(input$anios, collapse = "-"), "; precios ", estructura_precios())),
+        paste0("millones de ", moneda_lbl(TRUE), ", ", paste(input$anios, collapse = "-"))),
       k("Valor medio por egreso", paste0("$", fmt_num(q$valor_grd_medio / 1e3), " mil"), paste0(fmt_num(q$n_con_valor), " egresos con valor")),
-      if (!is.null(per) && !is.na(per$valor)) k("Por 100.000 habitantes", paste0("$", fmt_num(per$valor, 1), " M"), "millones de CLP por 100.000 personas-año"),
+      if (!is.null(per) && !is.na(per$valor)) k("Por 100.000 habitantes", paste0("$", fmt_num(per$valor, 1), " M"), paste0("millones de ", moneda_lbl(TRUE), " por 100.000 personas-año")),
       k("Días cama", fmt_num(q$dias_estada), paste0("estada media ", fmt_num(q$estada_media, 1), " días")),
       if (length(pct_cma) && !is.na(pct_cma)) k("Valor en CMA", paste0(fmt_num(pct_cma, 1), "%"), "cirugía mayor ambulatoria")
     )

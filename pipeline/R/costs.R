@@ -1,7 +1,8 @@
 # Valorización de egresos -------------------------------------------------------
 #
 # Valor GRD (principal, perspectiva FONASA): peso GRD × precio base del hospital según el clúster de la
-# resolución de precios, con una estructura de precios constante (por defecto 2024, como en los notebooks).
+# resolución de precios, con una estructura de precios constante (por defecto 2024, como en los notebooks),
+# llevado con el IPC a pesos del mes de referencia (costos$referencia_precios; octubre de 2025 en los artículos).
 # Hospitales fuera del listado reciben el precio único (U) en estructuras desde 2023.
 # Valor nominal deflactado (sensibilidad): peso × precio del propio año presupuestario × deflactor IPC.
 # No existe para 2019 (el pago GRD por Programa 05 parte con el presupuesto 2020).
@@ -37,7 +38,13 @@ add_costs <- function(eventos, dicts, ipc, mai, prod, params) {
   grd <- which(!is.na(eventos$grd_peso))
   est <- params$costos$estructura_precios_grd %||% 2024
   if (length(grd) && nrow(dicts$precios)) {
-    eventos[grd, valor_grd := grd_peso * price_lookup(cod_hospital, est, dicts)]
+    # Factor IPC de la estructura de precios al mes de referencia (1 si no hay IPC o referencia).
+    f_est <- 1
+    if (!is.null(ipc) && !is.null(params$costos$referencia_precios)) {
+      f_est <- ipc$deflactor[match(est, ipc$anio)]
+      if (is.na(f_est)) stop("El IPC no tiene el año de la estructura de precios GRD (", est, ").")
+    } else log_msg("Aviso: valor GRD sin actualizar por IPC (falta el IPC o costos$referencia_precios).")
+    eventos[grd, valor_grd := grd_peso * price_lookup(cod_hospital, est, dicts) * f_est]
     if (!is.null(ipc)) {
       for (y in intersect(unique(eventos$anio[grd]), unique(dicts$precios$anio_precio))) {
         idx <- grd[eventos$anio[grd] == y]

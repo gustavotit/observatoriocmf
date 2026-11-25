@@ -113,8 +113,10 @@ excel_or_text_date <- function(x) {
   d
 }
 
-# IPC: índice encadenado desde variaciones mensuales del BCCh (o índice en niveles), promedio anual y
-# deflactor a CLP del año base: deflactor[y] = índice_promedio[base] / índice_promedio[y].
+# IPC: índice encadenado desde variaciones mensuales del BCCh (o índice en niveles) y promedio anual.
+# Con costos$referencia_precios ("AAAA-MM"), deflactor[y] = índice[mes de referencia] / índice_promedio[y]: los
+# precios de cada año (referidos al promedio de su año) quedan en pesos de ese mes, como en los artículos.
+# Sin referencia, se usa el año base anterior: deflactor[y] = índice_promedio[base] / índice_promedio[y].
 process_ipc <- function(cfg) {
   vs <- ref_versions(cfg, "ipc")
   if (!length(vs)) return(NULL)
@@ -138,10 +140,22 @@ process_ipc <- function(cfg) {
   d <- d[!is.na(fecha) & !is.na(valor) & fecha >= desde][order(fecha)]
   if (identical(map$formato, "variacion_mensual")) d[, indice := cumprod(1 + valor / 100)] else d[, indice := valor]
   anual <- d[, .(indice_prom = mean(indice), meses = .N), by = .(anio = as.integer(format(fecha, "%Y")))]
-  base <- cfg$params$costos$anio_base_ipc %||% max(anual$anio)
-  if (!base %in% anual$anio) stop("El IPC no tiene datos para el año base ", base)
-  anual[, deflactor := anual[anio == base]$indice_prom / indice_prom]
-  anual[, anio_base := base]
+  ref <- cfg$params$costos$referencia_precios
+  if (!is.null(ref) && nzchar(ref)) {
+    mes_ref <- as.Date(paste0(substr(ref, 1, 7), "-01"))
+    if (is.na(mes_ref)) stop("costos$referencia_precios debe tener la forma AAAA-MM (p. ej. 2025-10).")
+    i_ref <- d[fecha == mes_ref]$indice
+    if (!length(i_ref)) stop("El IPC cargado no llega a ", format(mes_ref, "%m-%Y"), ": carga una versión más reciente del BCCh.")
+    anual[, deflactor := i_ref[1] / indice_prom]
+    anual[, anio_base := format(mes_ref, "%Y-%m")]
+    log_msg("IPC: precios llevados a pesos de ", format(mes_ref, "%Y-%m"), " (factor ",
+            paste0(anual$anio, " = ", round(anual$deflactor, 4), collapse = "; "), ")")
+  } else {
+    base <- cfg$params$costos$anio_base_ipc %||% max(anual$anio)
+    if (!base %in% anual$anio) stop("El IPC no tiene datos para el año base ", base)
+    anual[, deflactor := anual[anio == base]$indice_prom / indice_prom]
+    anual[, anio_base := base]
+  }
   incompletos <- anual[meses < 12]$anio
   if (length(incompletos)) log_msg("Aviso: IPC con menos de 12 meses en ", paste(incompletos, collapse = ", "))
   anual[]

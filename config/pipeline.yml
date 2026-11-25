@@ -65,7 +65,10 @@ costos:
   # posteriores al último parámetro cargado usan el último disponible hasta que se cargue el nuevo (queda en el log).
   # Valor GRD = peso GRD × precio base del hospital (clúster de la resolución anual). Perspectiva FONASA.
   estructura_precios_grd: 2024      # estructura de precios constante (principal); 2025 = sensibilidad
-  anio_base_ipc: 2024               # CLP de este año para los escenarios nominales deflactados
+  # Pesos de referencia (año-mes): el valor GRD, los escenarios nominales y los costos se llevan a pesos de este mes
+  # con el IPC: factor = índice del mes / índice promedio del año de los precios (convención de los artículos).
+  # Con estructura 2024 y referencia 2025-10, el factor es 1,0502 (notebook de carga económica del trauma v2.20).
+  referencia_precios: "2025-10"
   ipc_desde: 2018-01-01             # inicio del encadenamiento de variaciones mensuales del BCCh
   codigo_mai_dia_cama: null         # opcional: costeo alternativo por arancel MAI
   incluir_costos_indirectos: false  # pérdida de productividad durante la estada (capital humano)

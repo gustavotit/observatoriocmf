@@ -100,9 +100,12 @@ Los subgrupos que no forman la definición por defecto quedan seleccionables en 
 - **Exclusión por procedimiento:** `excluir_si_proc` en `cie10_diagnosticos.csv` (prefijos CIE-9-MC separados por `;`) descarta el egreso si algún procedimiento empieza así. Solo GRD; en DEIS se declara como limitación.
 - **Pabellón (GRD):** `USOSPABELLON`. Si viene vacío en todo el año (2020, 2025), se usa `FECHAINTERV1` como respaldo.
 - **Valor GRD:** peso × precio base del hospital según su clúster, con las resoluciones 2020-2025 (`grd_precios_base.csv`, `grd_hospital_grupo.csv`).
-  - Por defecto se usa la estructura de precios 2024.
+  - Por defecto se usa la estructura de precios 2024, expresada en pesos de octubre de 2025 (`costos$referencia_precios`):
+    factor IPC = índice de octubre de 2025 / índice promedio de 2024 = 1,0502, igual que el notebook de carga económica del
+    trauma v2.20. Así los montos del explorador y de los estudios importados quedan en la misma moneda.
   - Los hospitales fuera del listado reciben el precio único desde 2023.
-  - El escenario nominal se deflacta con el IPC del BCCh: variaciones mensuales encadenadas desde 2018, promedio anual.
+  - El escenario nominal (precio del propio año) se lleva a la misma referencia con el IPC del BCCh: variaciones mensuales
+    encadenadas desde 2018, índice del mes de referencia sobre el promedio de cada año.
 - **Tasas:** GRD, directamente estandarizadas con la población OMS 2000-2025 (80+ agregado) e IC gamma de Fay-Feuer. Las tasas crudas, por nacidos vivos, por universo y por egresos totales llevan IC exactos de Poisson.
 - **Severidad (trauma GRD):** RISS derivado de CIE-10 con ICDPIC-R 1.0.1 (tabla base, método NIS, `calc_method = 1`), igual que el notebook 2019-2025: claves de 4 caracteres, todas las posiciones diagnósticas, bandas 0-3/4-8/9-15/16-24/25+ y trauma mayor = RISS ≥ 16, más la versión que excluye las lesiones del módulo. La réplica coincide al 100% con `icdpicr::cat_trauma()` en una prueba de 3.000 egresos.
 - **Unidad de análisis:** el egreso. La identificación de pacientes únicos y las primeras cirugías quedan en los notebooks de cada artículo.

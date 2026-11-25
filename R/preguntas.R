@@ -653,8 +653,8 @@ cmf_preguntar <- function(pregunta) {
         m0 <- mean(s$.v[i0]); m1 <- mean(s$.v[i1]); cambio <- (m1 - m0) / m0 * 100
         u <- if (medida$tipo == "epi" && metric != "conteo") paste0(" ", pq_unidad(metric, por, modulo))
              else if (medida$tipo == "epi") " egresos al año"
-             else if (medida$tipo == "eco") c(valor_total = " millones de CLP", valor_medio = " miles de CLP por egreso",
-                                             valor_100k = " millones de CLP por 100.000 habitantes", dias_cama = " días cama",
+             else if (medida$tipo == "eco") c(valor_total = paste(" millones de", moneda_lbl(TRUE)), valor_medio = paste(" miles de", moneda_lbl(TRUE), "por egreso"),
+                                             valor_100k = paste(" millones de", moneda_lbl(TRUE), "por 100.000 habitantes"), dias_cama = " días cama",
                                              estada_media = " días")[[medida$ind]]
              else c(estada_media = " días", letalidad_pct = " %", pct_pabellon = " %", pct_trauma_mayor = " %")[[medida$col]]
         parrafos <- c(parrafos, paste0("El promedio de ", s$anio[1], "-", s$anio[3], " fue ", pq_fmt(m0, pq_dec(m0)), u,
@@ -696,7 +696,7 @@ cmf_preguntar <- function(pregunta) {
       }
     }
   }
-  if (medida$tipo == "eco" && grepl("^valor", medida$ind)) notas <- c(notas, paste0("Valor GRD a precios ", estructura_precios(), ": valor de los recursos para el financiador público, no costo observado."))
+  if (medida$tipo == "eco" && grepl("^valor", medida$ind)) notas <- c(notas, paste0("Valor GRD en ", moneda_lbl(), ": valor de los recursos para el financiador público, no costo observado."))
   if (!length(parrafos)) parrafos <- supr_txt
   pq_respuesta(TRUE, c(parrafos, notas), entendido = entendido, tabla = tabla, grafico = grafico,
                cita = tryCatch(cmf_cite(q), error = function(e) cmf_cite()), modulo = modulo)

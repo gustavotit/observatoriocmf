@@ -8,6 +8,20 @@
 ECO_INDICADORES <- c("valor_total", "valor_medio", "valor_100k", "dias_cama", "estada_media")
 
 estructura_precios <- function() cmf_manifest()$parametros$costos$estructura_precios_grd %||% 2024
+# Mes de los pesos ("2025-10") o NULL si el valor no está actualizado por IPC (datos anteriores a este cambio).
+referencia_precios <- function() {
+  r <- cmf_manifest()$parametros$costos$referencia_precios
+  if (is.null(r) || !nzchar(r)) NULL else substr(r, 1, 7)
+}
+# Rótulo de la moneda: "pesos de octubre de 2025, estructura de precios GRD 2024".
+moneda_lbl <- function(corto = FALSE) {
+  r <- referencia_precios(); est <- estructura_precios()
+  meses <- c("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre",
+             "noviembre", "diciembre")
+  if (is.null(r)) return(paste0("precios ", est))
+  mes <- paste0(meses[as.integer(substr(r, 6, 7))], " de ", substr(r, 1, 4))
+  if (corto) paste0("pesos de ", mes) else paste0("pesos de ", mes, ", estructura de precios GRD ", est)
+}
 
 #' Etiqueta de un indicador económico
 #' @param indicador Uno de "valor_total", "valor_medio", "valor_100k", "dias_cama", "estada_media".
@@ -15,9 +29,9 @@ estructura_precios <- function() cmf_manifest()$parametros$costos$estructura_pre
 cmf_eco_label <- function(indicador) {
   est <- estructura_precios()
   switch(indicador,
-         valor_total = paste0("Valor GRD, millones de CLP (precios ", est, ")"),
-         valor_medio = paste0("Valor GRD medio por egreso, miles de CLP (precios ", est, ")"),
-         valor_100k = paste0("Valor GRD por 100.000 habitantes, millones de CLP (precios ", est, ")"),
+         valor_total = paste0("Valor GRD, millones de ", moneda_lbl(TRUE)),
+         valor_medio = paste0("Valor GRD medio por egreso, miles de ", moneda_lbl(TRUE)),
+         valor_100k = paste0("Valor GRD por 100.000 habitantes, millones de ", moneda_lbl(TRUE)),
          dias_cama = "Días cama",
          estada_media = "Estada media, días",
          indicador)
