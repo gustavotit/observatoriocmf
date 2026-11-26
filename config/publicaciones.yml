@@ -137,3 +137,18 @@ articulos:
     periodo: "2001-2007"
     casos: 7617
     diseno: "retrospectivo; auditoría de fichas"
+
+  - tipo: "serie_hospitalaria"
+    modulo: "trauma"
+    autores: "Medina MJ, Molina P, Bobadilla L, Zaror R, Olate S"
+    anio: 2006
+    titulo: "Fracturas Maxilofaciales en Individuos Chilenos"
+    revista: "Int. J. Morphol."
+    referencia: "24(3)"
+    doi: "10.4067/s0717-9502200600040002"
+    estado: "publicado"
+    institucion: "Hospital Hernán Henríquez Aravena"
+    region: "La Araucanía"
+    periodo: "2002-2003"
+    casos: 742
+    diseno: "retrospectivo; auditoría de fichas"
