@@ -42,9 +42,11 @@ cmf_load <- function(name) {
 #' Manifiesto de la versión de datos (fecha, fuentes, parámetros)
 #' @export
 cmf_manifest <- function() {
-  f <- file.path(cmf_data_dir(), "manifest.json")
-  if (!file.exists(f)) return(list(version = "sin datos"))
-  jsonlite::read_json(f)
+  # En la app desplegada el archivo se llama manifiesto.json: rsconnect descarta todo archivo "manifest.json".
+  f <- file.path(cmf_data_dir(), c("manifiesto.json", "manifest.json"))
+  f <- f[file.exists(f)]
+  if (!length(f)) return(list(version = "sin datos"))
+  jsonlite::read_json(f[1])
 }
 
 #' Versión de los datos
