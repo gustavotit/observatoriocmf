@@ -1,3 +1,7 @@
+# observatoriocmf 1.0.0 (2026-11-26)
+
+- Versión inicial pública del Observatorio de Cirugía Maxilofacial de Chile
+
 # observatoriocmf (desarrollo)
 
 ## Valor GRD en pesos de octubre de 2025

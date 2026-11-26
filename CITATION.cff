@@ -8,8 +8,8 @@ authors:
   - family-names: "Sáenz-Ravello"
     given-names: "Gustavo"
     orcid: "https://orcid.org/0000-0001-8959-3989"
-version: 0.1.0
-date-released: 2026-11-07
+version: 1.0.0
+date-released: 2026-11-26
 license: MIT
 # DOI de concepto de Zenodo (se completa tras el primer release; no usar el DOI de una versión):
 # doi: 10.5281/zenodo.XXXXXXX

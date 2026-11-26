@@ -25,8 +25,14 @@
     "mapa_servicios_salud": 6648
   },
   "anios": {
-    "egresos_deis": [2001, 2025],
-    "grd": [2019, 2025]
+    "egresos_deis": [
+      2001,
+      2025
+    ],
+    "grd": [
+      2019,
+      2025
+    ]
   },
   "parametros": {
     "anios": {
@@ -75,7 +81,10 @@
       "calibrar_edad0_a_nacidos_vivos": true,
       "ajuste_edad_fuentes": "grd",
       "por_egresos": 100000,
-      "estandar_chile_anios": [2002, 2025]
+      "estandar_chile_anios": [
+        2002,
+        2025
+      ]
     },
     "clasificacion": {
       "mecanismo": {
@@ -94,7 +103,10 @@
     "geografia": {
       "region_respaldo_ambigua": [
         {
-          "regiones": [1, 10],
+          "regiones": [
+            1,
+            10
+          ],
           "hasta_anio": 2007
         },
         {
