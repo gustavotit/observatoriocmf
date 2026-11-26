@@ -78,3 +78,18 @@ articulos:
     periodo: "2020-2024"
     casos: 479
     diseno: "retrospectivo; auditoria de fichas"
+
+  - tipo: "serie_hospitalaria"
+    modulo: "fisuras"
+    autores: "Cordero E, Martínez G, Espinoza I, Pantoja R"
+    anio: 2021
+    titulo: "Estudio Retrospectivo de Fisuras Labio-Máxilo-Palatina en Chile, 12 Años de Seguimiento"
+    revista: "Int. J. Odontostomat."
+    referencia: "15(1):88-93"
+    doi: "10.4067/s0718-381x2021000100088"
+    estado: "publicado"
+    institucion: "Hospital Clínico San Borja Arriarán"
+    region: "Metropolitana"
+    periodo: "2005-2017"
+    casos: 255
+    diseno: "retrospectivo; auditoria fichas"
