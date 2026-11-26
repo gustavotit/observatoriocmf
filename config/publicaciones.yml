@@ -122,3 +122,18 @@ articulos:
     periodo: "2006-2010"
     casos: 44
     diseno: "retrospectivo; auditoria de fichas"
+
+  - tipo: "serie_hospitalaria"
+    modulo: "trauma"
+    autores: "Collao-Gonzalez C, Carrasco-Labra A, Sung-Hsieh H, Cortes-Araya J"
+    anio: 2014
+    titulo: "Epidemiology of pediatric facial trauma in Chile: A retrospective study of 7,617 cases in 3 years"
+    revista: "Med Oral"
+    referencia: "19(2):e99-e105"
+    doi: "10.4317/medoral.19035"
+    estado: "publicado"
+    institucion: "Hospital Exequiel Gonzalez Cortes"
+    region: "Metropolitana"
+    periodo: "2001-2007"
+    casos: 7617
+    diseno: "retrospectivo; auditoría de fichas"
