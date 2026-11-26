@@ -93,3 +93,17 @@ articulos:
     periodo: "2005-2017"
     casos: 255
     diseno: "retrospectivo; auditoria fichas"
+
+  - tipo: "nacional"
+    modulo: "fisuras"
+    autores: "Inostroza-Allende F, Delgado I, Farías J, Giugliano-Villarroel C, Matute MI, Olea A, et al"
+    anio: 2026
+    titulo: "Evolution of the Hospitalization Burden of Cleft Lip and Palate in Chile: A Nationwide Population-Based Study (2001–2019)"
+    revista: "Journal of Craniofacial Surgery"
+    referencia: "37(9):2257-2261"
+    doi: "10.1097/scs.0000000000012584"
+    estado: "publicado"
+    region: "Varias regiones"
+    periodo: "2001-2019"
+    casos: 23880
+    diseno: "DEIS 2001-2019"
